@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "produccion_mod2",
+    'name': "Obrador",
 
     'summary': "Creación de recetas""
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -8,19 +8,14 @@
 
     'description': "Creación de recetas, lista de alergenos presentes en los productos y sobras de alimentos del dia no vendidos.""
         Long description of module's purpose
-    "Creación de recetas a partir de nuestro inventario de materia prima comprada.
-Cada producto final creado tendrá una lista de alergenos.
-Lista de sobras por dia, semana, mes. De está manera se podrá mejorar la producción, reducir las sobras y ahorrar recursos y materia prima. TAB (Recetas)
-Lista de productos de creación propia organizados por: categoria.
-Botton de crear receta/producto: o Ingredientes (se puede escoger de la lista de materia prima que tendremos almacenado en los otros modulos.) o Cantidad: cada ingrediente tendrá la cantidad especificada TAB (Alergenos)
-Lista alergenos
-Botton NUEVO alergeno: donde podremos añadir nuevos alergenos.
-Tenemos una vista por lista de alergenos y otra vista por tabla de alergenos junto con los productos TAB(Sobras)
-Vemos una lista (que se puede organizar por dia, semana o mes) con las sobras.
-Hay in botton de NUEVO, donde se puede poner las sobras de ese día de alimentos perecederos."",
+    "Creación de recetas a partir del stock de materia prima y asignación de alergenos, tanto a las recetas como a la materia prima. Con la información de los alergenos y materia prima, se podrá crear etiquetado para los productos elaborados.
+	Añadir las sobras del día y como consecuencia se calculará automaticamente las sobras totales de la semana, mes o año, además de calcular el desperdicio de materia prima a lo largo del tiempo.
+	Con las sobras de todas las semanas, el sistema, propondrá una cantidad de producción para las semanas siguientes para asi poder minimizar las sobras.
+	Con la información del stock de materia prima, junto con el precio, se nos calculará el coste de producción de cada elaboración. Esto nos ayudará a mejorar nuestro marjen de ganancias, además de poder ver donde estamos perdinedo dinero y recursos.
+"",
 
     'author': "Alexandra Raluca, Savu",
-    'website': "https://github.com/alyraluca/produccion_mod2",
+    'website': "https://github.com/alyraluca/Obrador",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
