@@ -32,6 +32,7 @@ github_username:  alyraluca
 remote_theme: chrisrhymes/bulma-clean-theme@v0.14.0
 #plugins:
 #  - jekyll-feed
+theme_color: '#333333'
 
 # Exclude from processing.
 # The following items will not be processed, by default.
