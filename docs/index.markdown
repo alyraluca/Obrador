@@ -37,8 +37,13 @@ hero_darken: true
 
 ### 🗺️ MAPA CONCEPTUAL
 
-![mapa__module2.jpg](img/mapa__module2.jpg)
+El módulo se divide en dos secciones principales: **Producción** y **Sobras**. En la sección de **Producción**, los empleados responsables podrán añadir nuevas recetas, gestionar alérgenos y vincularlos con la materia prima correspondiente. Además, será posible incorporar y administrar dicha materia prima. Una vez guardada una receta, el sistema permitirá generar el etiquetado de alérgenos, elaborar informes de costes de producción y crear un producto a partir de la receta registrada.
 
+Por otro lado, la sección de **Sobras** está destinada a la gestión de los desperdicios. En esta área se pueden añadir, editar y administrar las sobras, lo que facilita la generación de informes detallados y la creación de propuestas de producción basadas en los materiales disponibles.
+
+<div style="text-align: center; margin: 20px;">
+  <img src="img/mapa__module2.jpg" alt="Mapa" style="width: 80%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+</div>
 
 
 ### WIREFRAME
