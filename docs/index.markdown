@@ -62,38 +62,79 @@ Por otro lado, la sección de **Sobras** está destinada a la gestión de los de
 
 #### Wireframe 02
 
-Wireframe del TAB de ‘Producción’ de la función de ‘Crear Recetas’.
-
-![wireframe_recetas2.jpg](img/wireframe_recetas2.jpg)
+<div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px;">
+  <div style="flex: 1; margin-right: 20px; text-align: justify;">  
+	El wireframe de la pestaña <strong>Producción </strong>, en la función de <strong>Crear Recetas</strong>, ilustra cómo sería el proceso de creación de una receta y los datos que se solicitarán. Incluye secciones para alérgenos, ingredientes, tiempo de cocción, temperatura, entre otros detalles necesarios. Desde esta interfaz, será posible guardar la receta o guardar y proceder a crear un producto basado en ella.
+  </div>
+  <div style="flex: 0 0 55%; text-align: center;">
+	<img src="img/wireframe_recetas2.jpg" alt="Wireframe producción" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+  </div>
+</div>
 
 #### Wireframe 03
 
-Wireframe del TAB de ‘Sobras’ con vista en forma de tabla.
+<div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px;">
+  <div style="flex: 1; margin-right: 20px; text-align: justify;">  
+	Aquí se muestra el wireframe de la pestaña <strong>Sobras</strong>, con una vista semanal de las sobras totales, que se puede visualizar por día, semana o mes. En esta pantalla se encuentra el botón de Informe de Sobras, desde el cual se pueden generar informes detallados sobre las sobras. Además, también se podrán consultar las propuestas de producción, las cuales ofrecen una estimación de las cantidades necesarias para optimizar la producción y evitar desperdicios.
+  </div>
+  <div style="flex: 0 0 55%; text-align: center;">
+	<img src="img/wireframe_alergenos1.jpg" alt="Wireframe producción" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+  </div>
+</div>
 
-![wireframe_alergenos1.jpg](img/wireframe_alergenos1.jpg)
+---
 
+### 🔄 DIAGRAMAS DE FLUJO
 
-### CONTROL DE ACCESO
+Aquí podemos observar los diferentes diagramas de flujo según la sección del módulo en la que nos encontremos. Comenzamos con el diagrama de **Producción**, donde se detallan las diversas funcionalidades del módulo y su flujo de trabajo. Se muestra cómo se pueden crear alérgenos, materia prima y recetas, y cómo estos elementos se integran para generar etiquetados e informes de producción.
 
-1. Grupos: administradores, empleados.
-1. Acceso al modulo: todos los usuarios
-1. Administradores: acceso a ‘Producción’ y ‘Sobras’.
-	- Permiso de lectura y escritura a todos los modulos.
-1. Empleados: acceso a ‘Producción’ y ‘Sobras’.
-	- Permiso de lectura y escritura a ‘Producción’ y ‘Sobras’.
+<div style="text-align: center; margin: 20px;">
+  <img src="img/flowchart_recetas.jpg" alt="Flowchart sobras" style="width: 70%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+</div>
 
+A continuación, se presenta el diagrama de la sección de **Sobras**, que ilustra el flujo de sus funcionalidades. Entre ellas se incluyen: añadir sobras, generar informes de propuestas de producción y de sobras, destacando cómo estas acciones se interrelacionan dentro del módulo.
 
-### DIAGRAMAS DE FLUJO
+<div style="text-align: center; margin: 20px;">
+  <img src="img/flowchart_sobras.jpg" alt="Flowchart sobras" style="width: 70%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+</div>
 
-Diagrama de flujo del TAB de ‘Producción’.
+---
+### <img src="img/image.png" alt="alt text" width="25" height="25"> ESQUEMA RELACIONAL DE LAS NUEVAS TABLAS
 
-![flowchart_recetas.jpg](img/flowchart_recetas.jpg)
+<div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px;">
+  <div style="flex: 1; margin-right: 20px; text-align: justify;">
+	  En este esquema relacional se muestra cómo se vinculan las nuevas tablas de la base de datos del módulo. Se puede observar que existen cinco tablas que interactúan entre sí según las acciones realizadas dentro del módulo, reflejando cómo los datos se conectan y se actualizan en función de las interacciones del usuario.
+  </div>
+  <div style="flex: 0 0 55%; text-align: center;">
+	<img src="img/data_base_module2.jpg" alt="Esquema de la base de datos" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+  </div>
+</div>
 
-Diagrama de flujo del TAB de ‘Sobras’.
+---
 
-![flowchart_sobras.jpg](img/flowchart_sobras.jpg)
+### 🔒 CONTROL DE ACCESO
 
+**Grupos de usuarios:**  
+1. **Administradores**  
+2. **Empleados** 
+3. **Producción**
+4. **Dependientas**   
 
-### ESQUEMA RELACIONAL DE LAS NUEVAS TABLAS
+**Acceso al módulo:**  
+- **Todos los usuarios** tienen acceso al módulo en general.
 
-![data_base_module2.jpg](img/data_base_module2.jpg)
+**Accesos y permisos por grupo:**  
+- **Administradores**  
+	- Acceso completo a **Producción** y **Sobras**.
+	- Permiso de **lectura y escritura** en todos los módulos, lo que les permite modificar y gestionar los datos de todos los registros.
+- **Empleados**  
+	- Acceso limitado a los apartados **Producción** y **Sobras**
+	- Acceso de **lectura**, lo que les permitirá solo visualizar los dos apartados.
+- **Producción**
+	- Acceso limitado a **Producción** y **Sobras**.
+	- Permiso de **lectura y escritura** a 'Producción'.
+	- Permiso de **lectura** a 'Sobras'.
+- **Dependientas**
+	- Acceso limitado a los apartados **Producción** y **Sobras**.
+	- Acceso de **lectura** al apartado de 'Producción'.
+	- Acceso de **lectura y escritura** al de 'Sobras'.
