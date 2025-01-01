@@ -45,16 +45,28 @@ Por otro lado, la sección de **Sobras** está destinada a la gestión de los de
   <img src="img/mapa__module2.jpg" alt="Mapa" style="width: 80%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
 </div>
 
+--- 
 
-### WIREFRAME
+### 🖼️ WIREFRAMES
 
-Wireframe del TAB de ‘Producción’.
+#### Wireframe 01
 
-![wireframe_recetas1.jpg](img/wireframe_recetas1.jpg)
+<div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px;">
+  <div style="flex: 1; margin-right: 20px; text-align: justify;">
+	  El wireframe de la pestaña <strong>Producción</strong> muestra cómo se verá la página principal. Desde esta página se podrán crear recetas, añadir materia prima y alérgenos, así como gestionarlos de forma intuitiva. Además, ofrecerá la opción de generar el etiquetado correspondiente y un informe detallado de los costes de producción.
+  </div>
+  <div style="flex: 0 0 55%; text-align: center;">
+	<img src="img/wireframe_recetas1.jpg" alt="Wireframe producción" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+  </div>
+</div>
+
+#### Wireframe 02
 
 Wireframe del TAB de ‘Producción’ de la función de ‘Crear Recetas’.
 
 ![wireframe_recetas2.jpg](img/wireframe_recetas2.jpg)
+
+#### Wireframe 03
 
 Wireframe del TAB de ‘Sobras’ con vista en forma de tabla.
 
