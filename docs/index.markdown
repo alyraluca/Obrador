@@ -6,6 +6,7 @@ layout: page
 title: Obrador
 subtitle: Gestión de recetas, alergenos y sobras de alimentos
 hero_image: img/banner01.jpg 
+hero_darken: true
 ---
 ### **FUNCIONALIDADES DESTACADAS**
 
@@ -34,11 +35,7 @@ hero_image: img/banner01.jpg
 
 ---
 
-Este módulo de Odoo está diseñado para optimizar la producción en el sector alimentario, ayudando a reducir costos, minimizar desperdicios y mejorar la gestión de ingredientes, todo mientras se asegura el cumplimiento de normativas sobre alérgenos. ¡Conviértete en un experto en la gestión de recursos con Odoo!
-
-
-
-### MAPA 
+### 🗺️ MAPA CONCEPTUAL
 
 ![mapa__module2.jpg](img/mapa__module2.jpg)
 
