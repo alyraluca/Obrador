@@ -35,7 +35,7 @@ hero_darken: true
 
 ---
 
-### 🗺️ MAPA CONCEPTUAL
+### 🗺️ MAPA MÓDULO
 
 El módulo se divide en dos secciones principales: **Producción** y **Sobras**. En la sección de **Producción**, los empleados responsables podrán añadir nuevas recetas, gestionar alérgenos y vincularlos con la materia prima correspondiente. Además, será posible incorporar y administrar dicha materia prima. Una vez guardada una receta, el sistema permitirá generar el etiquetado de alérgenos, elaborar informes de costes de producción y crear un producto a partir de la receta registrada.
 
