@@ -42,7 +42,7 @@ El módulo se divide en dos secciones principales: **Producción** y **Sobras**.
 Por otro lado, la sección de **Sobras** está destinada a la gestión de los desperdicios. En esta área se pueden añadir, editar y administrar las sobras, lo que facilita la generación de informes detallados y la creación de propuestas de producción basadas en los materiales disponibles.
 
 <div style="text-align: center; margin: 20px;">
-  <img src="img/mapa__module2.jpg" alt="Mapa" style="width: 80%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+  <img src="img/mapa_obrador.png" alt="Mapa" style="width: 80%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
 </div>
 
 --- 
@@ -56,7 +56,7 @@ Por otro lado, la sección de **Sobras** está destinada a la gestión de los de
 	  El wireframe de la pestaña <strong>Producción</strong> muestra cómo se verá la página principal. Desde esta página se podrán crear recetas, añadir materia prima y alérgenos, así como gestionarlos de forma intuitiva. Además, ofrecerá la opción de generar el etiquetado correspondiente y un informe detallado de los costes de producción.
   </div>
   <div style="flex: 0 0 55%; text-align: center;">
-	<img src="img/wireframe_recetas1.jpg" alt="Wireframe producción" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+	<img src="img/wireframe_recetario.png" alt="Wireframe producción" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
   </div>
 </div>
 
@@ -67,7 +67,7 @@ Por otro lado, la sección de **Sobras** está destinada a la gestión de los de
 	El wireframe de la pestaña <strong>Producción </strong>, en la función de <strong>Crear Recetas</strong>, ilustra cómo sería el proceso de creación de una receta y los datos que se solicitarán. Incluye secciones para alérgenos, ingredientes, tiempo de cocción, temperatura, entre otros detalles necesarios. Desde esta interfaz, será posible guardar la receta o guardar y proceder a crear un producto basado en ella.
   </div>
   <div style="flex: 0 0 55%; text-align: center;">
-	<img src="img/wireframe_recetas2.jpg" alt="Wireframe producción" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+	<img src="img/wireframe_recetario_receta.png" alt="Wireframe producción" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
   </div>
 </div>
 
@@ -78,10 +78,33 @@ Por otro lado, la sección de **Sobras** está destinada a la gestión de los de
 	Aquí se muestra el wireframe de la pestaña <strong>Sobras</strong>, con una vista semanal de las sobras totales, que se puede visualizar por día, semana o mes. En esta pantalla se encuentra el botón de Informe de Sobras, desde el cual se pueden generar informes detallados sobre las sobras. Además, también se podrán consultar las propuestas de producción, las cuales ofrecen una estimación de las cantidades necesarias para optimizar la producción y evitar desperdicios.
   </div>
   <div style="flex: 0 0 55%; text-align: center;">
-	<img src="img/wireframe_alergenos1.jpg" alt="Wireframe producción" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+	<img src="img/wireframe_recetario_alergenos.png" alt="Wireframe producción" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
   </div>
 </div>
 
+
+#### Wireframe 04
+
+<div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px;">
+  <div style="flex: 1; margin-right: 20px; text-align: justify;">  
+	Aquí se muestra el wireframe de la pestaña <strong>Sobras</strong>, con una vista semanal de las sobras totales, que se puede visualizar por día, semana o mes. En esta pantalla se encuentra el botón de Informe de Sobras, desde el cual se pueden generar informes detallados sobre las sobras. Además, también se podrán consultar las propuestas de producción, las cuales ofrecen una estimación de las cantidades necesarias para optimizar la producción y evitar desperdicios.
+  </div>
+  <div style="flex: 0 0 55%; text-align: center;">
+	<img src="img/wireframe_sobras_remanentes.png" alt="Wireframe producción" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+  </div>
+</div>
+
+
+#### Wireframe 05
+
+<div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px;">
+  <div style="flex: 1; margin-right: 20px; text-align: justify;">  
+	Aquí se muestra el wireframe de la pestaña <strong>Sobras</strong>, con una vista semanal de las sobras totales, que se puede visualizar por día, semana o mes. En esta pantalla se encuentra el botón de Informe de Sobras, desde el cual se pueden generar informes detallados sobre las sobras. Además, también se podrán consultar las propuestas de producción, las cuales ofrecen una estimación de las cantidades necesarias para optimizar la producción y evitar desperdicios.
+  </div>
+  <div style="flex: 0 0 55%; text-align: center;">
+	<img src="img/wireframe_sobras_graficas.png" alt="Wireframe producción" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+  </div>
+</div>
 ---
 
 ### 🔄 DIAGRAMAS DE FLUJO
@@ -89,13 +112,13 @@ Por otro lado, la sección de **Sobras** está destinada a la gestión de los de
 Aquí podemos observar los diferentes diagramas de flujo según la sección del módulo en la que nos encontremos. Comenzamos con el diagrama de **Producción**, donde se detallan las diversas funcionalidades del módulo y su flujo de trabajo. Se muestra cómo se pueden crear alérgenos, materia prima y recetas, y cómo estos elementos se integran para generar etiquetados e informes de producción.
 
 <div style="text-align: center; margin: 20px;">
-  <img src="img/flowchart_recetas.jpg" alt="Flowchart sobras" style="width: 70%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+  <img src="img/diagrama_flujo_recetario.png" alt="Flowchart sobras" style="width: 70%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
 </div>
 
 A continuación, se presenta el diagrama de la sección de **Sobras**, que ilustra el flujo de sus funcionalidades. Entre ellas se incluyen: añadir sobras, generar informes de propuestas de producción y de sobras, destacando cómo estas acciones se interrelacionan dentro del módulo.
 
 <div style="text-align: center; margin: 20px;">
-  <img src="img/flowchart_sobras.jpg" alt="Flowchart sobras" style="width: 70%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+  <img src="img/diagrama_flujo_sobras.png" alt="Flowchart sobras" style="width: 70%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
 </div>
 
 ---
@@ -106,7 +129,7 @@ A continuación, se presenta el diagrama de la sección de **Sobras**, que ilust
 	  En este esquema relacional se muestra cómo se vinculan las nuevas tablas de la base de datos del módulo. Se puede observar que existen cinco tablas que interactúan entre sí según las acciones realizadas dentro del módulo, reflejando cómo los datos se conectan y se actualizan en función de las interacciones del usuario.
   </div>
   <div style="flex: 0 0 55%; text-align: center;">
-	<img src="img/data_base_module2.jpg" alt="Esquema de la base de datos" style="width: 80%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+	<img src="img/data_base_obrador.png" alt="Esquema de la base de datos" style="width: 80%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
   </div>
 </div>
 
