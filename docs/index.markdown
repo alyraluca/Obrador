@@ -124,13 +124,10 @@ A continuación, se presenta el diagrama de la sección de **Sobras**, que ilust
 ---
 ### <img src="img/image.png" alt="alt text" width="25" height="25"> ESQUEMA RELACIONAL DE LAS NUEVAS TABLAS
 
-<div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px;">
-  <div style="flex: 1; margin-right: 20px; text-align: justify;">
-	  En este esquema relacional se muestra cómo se vinculan las nuevas tablas de la base de datos del módulo. Se puede observar que existen cinco tablas que interactúan entre sí según las acciones realizadas dentro del módulo, reflejando cómo los datos se conectan y se actualizan en función de las interacciones del usuario.
-  </div>
-  <div style="flex: 0 0 55%; text-align: center;">
-	<img src="img/data_base_obrador.png" alt="Esquema de la base de datos" style="width: 80%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
-  </div>
+En este esquema relacional se muestra cómo se vinculan las nuevas tablas de la base de datos del módulo. Se puede observar que existen cinco tablas que interactúan entre sí según las acciones realizadas dentro del módulo, reflejando cómo los datos se conectan y se actualizan en función de las interacciones del usuario.
+
+<div style="text-align: center; margin: 20px;">
+  <img src="img/data_base_obrador.png" alt="Esquema de la base de datos" style="width: 70%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
 </div>
 
 ---
