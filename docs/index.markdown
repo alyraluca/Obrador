@@ -82,6 +82,7 @@ Por otro lado, la sección de **Sobras** está enfocada en la gestión de desper
 <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px;">
   <div style="flex: 1; margin-right: 20px; text-align: justify;">  
 	Este es el wireframe de la subpestaña <strong>Remanentes</strong>, ubicada dentro de la pestaña <strong>Sobras</strong>. Los datos de esta sección se actualizarán automáticamente, considerando las órdenes de producción del día registradas en el módulo de Producción y las ventas del módulo de TPV al cierre de caja. Aquí será posible visualizar la información filtrada por despachos, fechas o incluso por producto. Además, esta subpestaña ofrecerá la opción de generar informes detallados con todos los datos y crear una "Propuesta de producción". Esta última funcionalidad permitirá que el sistema, basándose en patrones históricos, sugiera producciones estratégicas para reducir desperdicios y optimizar las ventas.
+  </div>
   <div style="flex: 0 0 55%; text-align: center;">
 	  <img src="img/wireframe_sobras_remanentes.png" alt="Wireframe producción" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
   </div>
