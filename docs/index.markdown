@@ -127,7 +127,7 @@ A continuación, se presenta el diagrama de la sección de **Sobras**, que ilust
 En este esquema relacional se muestra cómo se vinculan las nuevas tablas de la base de datos del módulo. Se puede observar que existen cinco tablas que interactúan entre sí según las acciones realizadas dentro del módulo, reflejando cómo los datos se conectan y se actualizan en función de las interacciones del usuario.
 
 <div style="text-align: center; margin: 20px;">
-  <img src="img/data_base_obrador.png" alt="Esquema de la base de datos" style="width: 70%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+  <img src="img/data_base_obrador1.png" alt="Esquema de la base de datos" style="width: 70%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
 </div>
 
 ---
