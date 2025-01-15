@@ -36,7 +36,7 @@ El módulo se divide en dos secciones principales: **Recetario** y **Sobras**. E
 Por otro lado, la sección de **Sobras** está enfocada en la gestión de desperdicios. En esta área, los usuarios podrán visualizar y administrar las sobras, lo que facilitará la generación de informes detallados y la creación de propuestas de producción basadas en las sobras calculadas a partir de las ventas del módulo de TPV y la producción del módulo de **'Producción'**. También será posible visualizar esta información a través de gráficos, mejorando la interpretación y el análisis de los datos.
 
 <div style="text-align: center; margin: 20px;">
-  <img src="img/mapa_obrador.png" alt="Mapa" style="width: 80%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+  <img src="img/" alt="Mapa" style="width: 80%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
 </div>
 
 --- 
