@@ -16,13 +16,29 @@
 -->
 
     <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="obrador.action_window">
-      <field name="name">Obrador window</field>
-      <field name="res_model">obrador.obrador</field>
+    <record model="ir.actions.act_window" id="obrador.action_window_recetas">
+      <field name="name">Recetas window</field>
+      <field name="res_model">obrador.recetas</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
+    <record model="ir.actions.act_window" id="obrador.action_window_alergenos">
+      <field name="name">Alergenos window</field>
+      <field name="res_model">obrador.alergenos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="obrador.action_window_remanentes">
+      <field name="name">Remanentes window</field>
+      <field name="res_model">obrador.remanentes</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="obrador.action_window_graficas">
+      <field name="name">Graficas window</field>
+      <field name="res_model">obrador.graficas</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
 
     <!-- server action to the one above -->
 <!--
@@ -41,20 +57,27 @@
 -->
 
     <!-- Top menu item -->
-<!--
+
     <menuitem name="Obrador" id="obrador.menu_root"/>
--->
+
     <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="obrador.menu_1" parent="obrador.menu_root"/>
-    <menuitem name="Menu 2" id="obrador.menu_2" parent="obrador.menu_root"/>
--->
+
+    <menuitem name="Recetario" id="obrador.menu_1" parent="obrador.menu_root"/>
+    <menuitem name="Sobras" id="obrador.menu_2" parent="obrador.menu_root"/>
+--
     <!-- actions -->
-<!--
-    <menuitem name="List" id="obrador.menu_1_list" parent="obrador.menu_1"
-              action="obrador.action_window"/>
-    <menuitem name="Server to list" id="obrador" parent="obrador.menu_2"
-              action="obrador.action_server"/>
--->
+
+    <menuitem name="Recetas" id="obrador.menu_1_recetas" parent="obrador.menu_1"
+              action="obrador.action_window_recetas"/>
+    <menuitem name="Alergenos" id="obrador.menu_1_alergenos" parent="obrador.menu_1"
+              action="obrador.action_window_alergenos"/>
+
+
+
+    <menuitem name="Remanentes" id="obrador.menu_2_remanentes" parent="obrador.menu_2"
+              action="obrador.action_window_remanentes"/>
+    <menuitem name="Gráficas" id="obrador.menu_2_graficas" parent="obrador.menu_2"
+              action="obrador.action_window_graficas"/>
+
   </data>
 </odoo>
