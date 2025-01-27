@@ -23,8 +23,14 @@
       <field name="view_mode">tree,form</field>
     </record>
     -->
+     <record model="ir.actions.act_window" id="obrador.action_window_recetas">
+      <field name="name">Recetas</field>
+      <field name="res_model">obrador.recetas</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="obrador.recetas_tree_view"/>
+    </record>
 
-    <record model="ir.ui.view" id="obrador.action_window_recetas">
+    <record model="ir.ui.view" id="obrador.recetas_tree_view">
       <field name="name">Recetas</field>
       <field name="model">obrador.recetas</field>
       <field name="arch" type="xml">
