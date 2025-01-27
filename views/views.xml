@@ -16,25 +16,40 @@
 -->
 
     <!-- actions opening views on models -->
+    <!--
     <record model="ir.actions.act_window" id="obrador.action_window_recetas">
-      <field name="name">Recetas window</field>
+      <field name="name">Recetas</field>
       <field name="res_model">obrador.recetas</field>
       <field name="view_mode">tree,form</field>
     </record>
+    -->
+
+    <record model="ir.ui.view" id="obrador.action_window_recetas">
+      <field name="name">Recetas</field>
+      <field name="model">obrador.recetas</field>
+      <field name="arch" type="xml">
+        <tree>
+        <field name="name" string = "Nombre"/>
+        <field name= "cant" string = "Cantidad"/>
+        <field name="categ" string = "Categoria"/>
+        </tree>
+      </field>
+    </record>
+
     <record model="ir.actions.act_window" id="obrador.action_window_alergenos">
-      <field name="name">Alergenos window</field>
+      <field name="name">Alergenos</field>
       <field name="res_model">obrador.alergenos</field>
       <field name="view_mode">tree,form</field>
     </record>
 
 
     <record model="ir.actions.act_window" id="obrador.action_window_remanentes">
-      <field name="name">Remanentes window</field>
+      <field name="name">Remanentes</field>
       <field name="res_model">obrador.remanentes</field>
       <field name="view_mode">tree,form</field>
     </record>
     <record model="ir.actions.act_window" id="obrador.action_window_graficas">
-      <field name="name">Graficas window</field>
+      <field name="name">Gráficas</field>
       <field name="res_model">obrador.graficas</field>
       <field name="view_mode">tree,form</field>
     </record>

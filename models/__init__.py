@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+#from . import models
 from . import alergenos
 from . import graficas
 from . import recetas 
