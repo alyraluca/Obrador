@@ -15,6 +15,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name" string = "Nombre" />
+          <field name="cant" string = "Cantidad receta" />
           <field name="categ" string = "Categoria"/>
           <field name= "alergenos_ids" string = "Alérgenos"  widget = "many2many_tags"/>
         </tree>
