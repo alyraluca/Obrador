@@ -72,19 +72,19 @@
     </record>
 
 
-
+    <!--Vista de lista solo, sin formulario, editable desde la lista-->
     <record model="ir.actions.act_window" id="obrador.action_window_alergenos">
-      <field name="name">Alergenos</field>
+      <field name="name">Alérgenos</field>
       <field name="res_model">obrador.alergenos</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree</field>
     </record>
 
     <record model="ir.ui.view" id="obrador.alergenos_tree_view">
       <field name="name">Alergenos</field>
       <field name="model">obrador.alergenos</field>
       <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
+        <tree editable="bottom">
+          <field name="name" editable = "true"/>
           <field name="recetas_count"/>
         </tree>
       </field>
