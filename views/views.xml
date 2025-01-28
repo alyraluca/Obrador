@@ -14,8 +14,8 @@
       <field name="model">obrador.recetas</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name" string = "Nombre" />
-          <field name="cant" string = "Cantidad receta" />
+          <field name="producto_id" string = "Nombre" />
+          <field name="cant" string = "Cantidad"/>
           <field name="categ" string = "Categoria"/>
           <field name= "alergenos_ids" string = "Alérgenos"  widget = "many2many_tags"/>
         </tree>
@@ -30,7 +30,7 @@
           <sheet>
             <group>
               <group>
-                <field name = "name"/>
+                <field name = "producto_id"/>
                 <field name = "tiempo"/>
                 <field name = "temp"/>
               </group>
@@ -44,8 +44,16 @@
               </group>
               <group>
                 <field name = "alergenos_ids" widget= "many2many_checkboxes"/>
-              </group>
+              </group> 
             </group>
+            <group>
+                <field name = "ingredientes_ids" >
+                  <tree editable= "bottom">
+                    <field name ="producto_id"/>
+                    <field name = "cantidad"/>
+                  </tree>
+                </field>
+              </group>
           </sheet>
         </form>
       </field>

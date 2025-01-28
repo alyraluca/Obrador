@@ -5,3 +5,4 @@ from . import alergenos
 from . import graficas
 from . import recetas 
 from . import remanentes
+from . import receta_ingrediente

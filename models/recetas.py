@@ -4,7 +4,9 @@ class Recetas(models.Model):
     _name = 'obrador.recetas'
     _description = 'Receta'
 
-    name = fields.Char(string='Nombre', required=True, help = 'Nombre de la receta')
+    #name = fields.Char(string='Nombre', required=True, help = 'Nombre de la receta')
+
+    producto_id = fields.Many2one('product.product', string = 'Producto', required = True)
 
     tiempo = fields.Integer(string='Tiempo cocción (min)')
     temp = fields.Integer(string='Temp. cocción (ºC)')
@@ -31,6 +33,12 @@ class Recetas(models.Model):
     )
 
     notas = fields.Text(string = 'Comentarios')
+
+    ingredientes_ids = fields.One2many(
+        'obrador.receta.ingrediente',
+        'receta_id',
+        string='Ingredientes'
+    )
 
 
 
