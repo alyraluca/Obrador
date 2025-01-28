@@ -26,8 +26,7 @@
      <record model="ir.actions.act_window" id="obrador.action_window_recetas">
       <field name="name">Recetas</field>
       <field name="res_model">obrador.recetas</field>
-      <field name="view_mode">tree,form</field>
-      <field name="view_id" ref="obrador.recetas_tree_view"/>
+      <field name="view_mode">tree,form</field> 
     </record>
 
     <record model="ir.ui.view" id="obrador.recetas_tree_view">
@@ -35,12 +34,38 @@
       <field name="model">obrador.recetas</field>
       <field name="arch" type="xml">
         <tree>
-        <field name="name" string = "Nombre"/>
-        <field name= "cant" string = "Cantidad"/>
-        <field name="categ" string = "Categoria"/>
+          <field name="name" string = "Nombre" />
+          <field name="categ" string = "Categoria"/>
+          <field name= "alergenos_ids" string = "Alérgenos"  widget = "many2many_tags"/>
         </tree>
       </field>
     </record>
+
+    <record model="ir.ui.view" id="obrador.recetas_form_view">
+      <field name="name">Recetario</field>
+      <field name="model">obrador.recetas</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name = "name"/>
+              <field name = "tiempo"/>
+              <field name = "temp"/>
+              <field name = "cant"/>
+              <field name = "peso"/>
+              <field name = "categ"/>
+            </group>
+            <group>
+              <!-- Lista de checkboxes para seleccionar varios alergenos-->
+              <field name = "alergenos_ids" widget= "many2one_checkboxes"/>
+              <field name="notas"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
 
     <record model="ir.actions.act_window" id="obrador.action_window_alergenos">
       <field name="name">Alergenos</field>

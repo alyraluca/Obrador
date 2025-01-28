@@ -16,12 +16,14 @@ class Recetas(models.Model):
          ('Bakery', 'Pasteleria'),
          ('Breads', 'Panes'),
          ('Savoury', 'Salado')],
-        string='Categoria')
+        string='Categoria',
+        required=True)
 
-    alergenos = fields.Selection(
-        [('Gluten', 'Gluten'), ('Lactose' , 'Lactosa')],
-        string = 'Alergenos',
-        required=True
+    alergenos_ids = fields.Many2many(
+        'obrador.alergenos',
+        string = 'Alérgenos',
+        help = 'Selecciona uno o más alérgenos para esta receta'
+        #required=True
     )
 
     notas = fields.Text(string = 'Comentarios')
