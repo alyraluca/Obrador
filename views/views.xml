@@ -1,29 +1,9 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="obrador.list">
-      <field name="name">Obrador list</field>
-      <field name="model">obrador.obrador</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
--->
 
     <!-- actions opening views on models -->
-    <!--
+
     <record model="ir.actions.act_window" id="obrador.action_window_recetas">
-      <field name="name">Recetas</field>
-      <field name="res_model">obrador.recetas</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
-     <record model="ir.actions.act_window" id="obrador.action_window_recetas">
       <field name="name">Recetas</field>
       <field name="res_model">obrador.recetas</field>
       <field name="view_mode">tree,form</field> 
@@ -62,8 +42,7 @@
                 <field name="notas"/>
               </group>
               <group>
-                <!-- Lista de checkboxes para seleccionar varios alergenos-->
-                <field name = "alergenos_ids" widget= "many2many_checkboxes" required = "1"/>
+                <field name = "alergenos_ids" widget= "many2many_checkboxes"/>
               </group>
             </group>
           </sheet>
@@ -72,7 +51,8 @@
     </record>
 
 
-    <!--Vista de lista solo, sin formulario, editable desde la lista-->
+   
+    
     <record model="ir.actions.act_window" id="obrador.action_window_alergenos">
       <field name="name">Alergenos</field>
       <field name="res_model">obrador.alergenos</field>
@@ -85,7 +65,8 @@
       <field name="arch" type="xml">
         <tree editable="bottom">
           <field name="name"/>
-          <field name="recetas_count" readonly = "1" style = "width: 30px;"/> 
+          <field name="recetas_count" readonly = "1" />
+          <field name="recetas_tags" readonly = "1" />
         </tree>
       </field>
     </record>

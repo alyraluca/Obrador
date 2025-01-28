@@ -17,7 +17,8 @@ class Recetas(models.Model):
          ('Breads', 'Panes'),
          ('Savoury', 'Salado')],
         string='Categoria',
-        required=True)
+        required=True
+        )
 
     alergenos_ids = fields.Many2many(
         'obrador.alergenos', #Modelo relacionado
@@ -25,10 +26,17 @@ class Recetas(models.Model):
         'receta_id', #Campo en la tabla de ESTE modelo
         'alergeno_id', #Campo en la tabla del modelo relacionado
         string = 'Alérgenos',
-        help = 'Selecciona uno o más alérgenos para esta receta',
-        required=True
+        help = 'Selecciona uno o más alérgenos para esta receta'
+        
     )
 
     notas = fields.Text(string = 'Comentarios')
+
+
+
+
+    
+
+
 
     
