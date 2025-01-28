@@ -6,7 +6,7 @@ class Alergenos(models.Model):
 
     name = fields.Char(string='Nombre')
     recetas_count  = fields.Integer(string='Número de recetas', compute = '_compute_recetas_count')
-    recetas_tags = fields.Char(string = "Recetas con este alérgeno", compute = "_compute_recetas_tags")
+    #recetas_tags = fields.Char(string = "Recetas con este alérgeno", compute = '_compute_recetas_tags')
 
     #Contar todas las recetas que tienen ese alergeno
     @api.depends('recetas_ids')
@@ -24,8 +24,9 @@ class Alergenos(models.Model):
     )
 
     #Obtener los nombres de las recetas
-
-    def _compute_recetas_tags(self):
-        for record in self:
-            recetas_names = [receta.name for receta in record.recetas_ids]
-            record.recetas_tags = ', '.join(recetas_names) if recetas_names else ''
+    
+    #def _compute_recetas_tags(self):
+     #   for record in self:
+      #      recetas_names = [receta.name for receta in record.recetas_ids]
+       #     record.recetas_tags = ', '.join(recetas_names) if recetas_names else ''
+            
