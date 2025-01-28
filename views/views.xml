@@ -74,7 +74,7 @@
 
     <!--Vista de lista solo, sin formulario, editable desde la lista-->
     <record model="ir.actions.act_window" id="obrador.action_window_alergenos">
-      <field name="name">Alérgenos</field>
+      <field name="name">Alergenos</field>
       <field name="res_model">obrador.alergenos</field>
       <field name="view_mode">tree</field>
     </record>
@@ -84,14 +84,11 @@
       <field name="model">obrador.alergenos</field>
       <field name="arch" type="xml">
         <tree editable="bottom">
-          <field name="name" />
-          <field name="recetas_count" readonly = "1" style = "width: 10%;"/>
-          <field name="recetas_ids" readonly = "1" widget="many2many_tags"/>
+          <field name="name"/>
+          <field name="recetas_count" readonly = "1" style = "width: 30px;"/> 
         </tree>
       </field>
     </record>
-
-
 
 
 
