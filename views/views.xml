@@ -48,17 +48,23 @@
         <form>
           <sheet>
             <group>
-              <field name = "name"/>
-              <field name = "tiempo"/>
-              <field name = "temp"/>
-              <field name = "cant"/>
-              <field name = "peso"/>
-              <field name = "categ"/>
-            </group>
-            <group>
-              <!-- Lista de checkboxes para seleccionar varios alergenos-->
-              <field name = "alergenos_ids" widget= "many2one_checkboxes"/>
-              <field name="notas"/>
+              <group>
+                <field name = "name"/>
+                <field name = "tiempo"/>
+                <field name = "temp"/>
+              </group>
+              <group>
+                <field name = "cant"/>
+                <field name = "peso"/>
+                <field name = "categ"/>
+              </group>
+              <group> 
+                <field name="notas"/>
+              </group>
+              <group>
+                <!-- Lista de checkboxes para seleccionar varios alergenos-->
+                <field name = "alergenos_ids" widget= "many2many_checkboxes" required = "1"/>
+              </group>
             </group>
           </sheet>
         </form>
@@ -72,6 +78,20 @@
       <field name="res_model">obrador.alergenos</field>
       <field name="view_mode">tree,form</field>
     </record>
+
+    <record model="ir.ui.view" id="obrador.alergenos_tree_view">
+      <field name="name">Alergenos</field>
+      <field name="model">obrador.alergenos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="recetas_count"/>
+        </tree>
+      </field>
+    </record>
+
+
+
 
 
     <record model="ir.actions.act_window" id="obrador.action_window_remanentes">
@@ -110,7 +130,7 @@
 
     <menuitem name="Recetario" id="obrador.menu_1" parent="obrador.menu_root"/>
     <menuitem name="Sobras" id="obrador.menu_2" parent="obrador.menu_root"/>
---
+
     <!-- actions -->
 
     <menuitem name="Recetas" id="obrador.menu_1_recetas" parent="obrador.menu_1"
