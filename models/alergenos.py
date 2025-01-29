@@ -25,13 +25,10 @@ class Alergenos(models.Model):
     )
     
 
-    #Obtener los nombres de las recetas
+    #Obtener los nombres de las recetas para visualizarlas en la lista
     @api.depends('recetas_ids')
     def _compute_recetas_tags(self):
         for record in self:
             recetas_names = [receta.name for receta in record.recetas_ids]
             record.recetas_tags = ', '.join(recetas_names) if recetas_names else ''
 
-    '''> /mnt/extra-addons/obrador/models/alergenos.py(32)<listcomp>()
-odoodock-web-1     | -> recetas_names = [receta.name for receta in record.recetas_ids]
-'''
