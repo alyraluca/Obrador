@@ -19,6 +19,7 @@
           <field name="categ" string = "Categoria"/>
           <field name= "alergenos_ids" string = "Alérgenos"  widget = "many2many_tags"/>
           <field name= "ultima_fecha_produc" string = "Fecha última producción"/>
+          <field name = 'ultima_cantidad_produc' />
         </tree>
       </field>
     </record>

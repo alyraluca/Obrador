@@ -16,6 +16,7 @@ class Recetas(models.Model):
     peso = fields.Float(string='Peso total (kg)')
     #Campo calculado para la fecha de producción
     ultima_fecha_produc = fields.Datetime(string = 'Última fecha de producción', compute = '_compute_ultima_fecha_produc')
+    ultima_cantidad_produc = fields.Float(string= 'Última cantidad producida', compute = '_compute_ultima_cantidad_produc')
 
     categ = fields.Selection(
         [('Pastries', 'Bolleria'),
@@ -61,20 +62,31 @@ class Recetas(models.Model):
                 [
                     ('product_id', '=', record.producto_id.id),
                     ('state', '=', 'done') #Solo tenemos en cuenta las ordenes acabadas
-                ], order = 'date_planned desc', limit=1 #Ordenamos de forma descendente y lo limitamos a una orden
+                ], order = 'date_finished desc', limit=1 #Ordenamos de forma descendente y lo limitamos a una orden
             )
             if ultima_produc:
-                record.ultima_fecha_produc = ultima_produc.date_planned
+                record.ultima_fecha_produc = ultima_produc.date_finished
             else:
                 record.ultima_fecha_produc = False
 
-'''usr/lib/python3/dist-packages/odoo/models.py(4404)_generate_order_by_inner()
-odoodock-web-1     | -> raise ValueError("Invalid field %r on model %r" % (order_field, self._name))
-'''
-
+    @api.depends('producto_id')
+    def _ultima_cantidad_produc(self):
+        for record in self:
+            ultima_produc = self.env['mrp.production'].search( # Realizamos la busqueda en el modelo
+                [
+                    ('product_id', '=', record.producto_id.id),
+                    ('state', '=', 'done') #Solo tenemos en cuenta las ordenes acabadas
+                ], order = 'date_finished desc', limit=1 #Ordenamos de forma descendente y lo limitamos a una orden
+            )
+            if ultima_produc:
+                record.ultima_cantidad_produc = ultima_produc.qty_producing
+            else:
+                record.ultima_cantidad_produc = 0.0
 
     
-
+'''> /usr/lib/python3/dist-packages/odoo/fields.py(80)determine()
+odoodock-web-1     | -> needle = getattr(records, needle)
+'''
 
 
     
