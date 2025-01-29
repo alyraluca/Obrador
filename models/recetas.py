@@ -68,6 +68,9 @@ class Recetas(models.Model):
             else:
                 record.ultima_fecha_produc = False
 
+'''usr/lib/python3/dist-packages/odoo/models.py(4404)_generate_order_by_inner()
+odoodock-web-1     | -> raise ValueError("Invalid field %r on model %r" % (order_field, self._name))
+'''
 
 
     
