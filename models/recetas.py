@@ -70,7 +70,7 @@ class Recetas(models.Model):
                 record.ultima_fecha_produc = False
 
     @api.depends('producto_id')
-    def _ultima_cantidad_produc(self):
+    def _compute_ultima_cantidad_produc(self):
         for record in self:
             ultima_produc = self.env['mrp.production'].search( # Realizamos la busqueda en el modelo
                 [
@@ -79,14 +79,12 @@ class Recetas(models.Model):
                 ], order = 'date_finished desc', limit=1 #Ordenamos de forma descendente y lo limitamos a una orden
             )
             if ultima_produc:
-                record.ultima_cantidad_produc = ultima_produc.qty_producing
+                record.ultima_cantidad_produc = ultima_produc.product_qty
             else:
                 record.ultima_cantidad_produc = 0.0
 
     
-'''> /usr/lib/python3/dist-packages/odoo/fields.py(80)determine()
-odoodock-web-1     | -> needle = getattr(records, needle)
-'''
+
 
 
     
