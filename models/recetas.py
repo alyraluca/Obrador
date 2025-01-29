@@ -4,7 +4,7 @@ class Recetas(models.Model):
     _name = 'obrador.recetas'
     _description = 'Receta'
 
-    #name = fields.Char(string='Nombre', required=True, help = 'Nombre de la receta')
+    name = fields.Char(string='Nombre')
 
     producto_id = fields.Many2one('product.product', string = 'Producto', required = True)
 
@@ -39,7 +39,17 @@ class Recetas(models.Model):
         'receta_id',
         string='Ingredientes'
     )
-
+    @api.model
+    def create(self, values):
+        if not values.get('name') and values.get('producto_id'):
+            producto = self.env['product.product'].browse(values['producto_id'])
+            values['name'] = producto.name
+        return super(Recetas, self).create(values)
+'''
+    @api.onchange('producto_id')
+    def _onchange_producto_id(self):
+        if self.producto_id and not self.name:
+            self.name = self.producto_id.name '''
 
 
 
