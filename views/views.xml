@@ -76,8 +76,8 @@
       <field name="arch" type="xml">
         <tree editable="bottom">
           <field name="name"/>
-          <field name="recetas_count" readonly = "1" />
-          <field name="recetas_tags" readonly = "1" />
+          <field name="recetas_count" readonly = "1"/>
+          <field name="recetas_ids" readonly = "1" widget = "many2many_tags"/>
         </tree>
       </field>
     </record>
