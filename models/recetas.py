@@ -58,13 +58,14 @@ class Recetas(models.Model):
         'receta_id',
         string='Ingredientes'
     )
+    '''
     #Sobreescribir el metodo de crear para ponerle el mismo nombre a la receta que el del producto
     @api.model
     def create(self, values):
         if not values.get('name') and values.get('producto_id'):
             producto = self.env['product.product'].browse(values['producto_id'])
             values['name'] = producto.name
-        return super(Recetas, self).create(values)
+        return super(Recetas, self).create(values)'''
 
     #Campo calculado para almacenar la última fecha de producción del producto asociado a la receta
     @api.depends('producto_id')
@@ -99,7 +100,10 @@ class Recetas(models.Model):
     @api.depends('producto_ids')
     def _compute_producto_id(self):
         for record in self:
-            record.producto_id = record.producto_ids[:1].id if record.producto_ids else False
+            if record.producto_ids:
+                record.producto_id = record.producto_ids[0].id 
+            else:
+                record.producto_id = False
     
     def _inverse_producto_id(self):
         for record in self:
