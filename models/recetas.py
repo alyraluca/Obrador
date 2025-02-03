@@ -6,14 +6,27 @@ class Recetas(models.Model):
 
     name = fields.Char(string='Nombre')
 
-    #Relación Many2one con los productos. UNA receta solo puede estar relacionada con UN producto
-    #Mientras un producto puede estar relacionado con muchas recetas
-    producto_id = fields.Many2one('product.product', string = 'Producto', required = True)
+    #Relación de varios productos/materia prima a una receta
+    producto_ids = fields.One2many(
+        'product.product',
+        'receta_id',
+        string= 'Producto'
+    )
+    #Facilita la relación con un solo producto 
+    producto_id = fields.Many2one(
+        'product.product',
+        compute = '_compute_producto_id',
+        inverse = '_inverse_producto_id',
+        store=True,
+        string = 'Producto', 
+        
+        )
 
     tiempo = fields.Integer(string='Tiempo cocción (min)')
     temp = fields.Integer(string='Temp. cocción (ºC)')
     cant = fields.Integer(string='Cantidad receta (u)')
     peso = fields.Float(string='Peso total (kg)')
+
     #Campo calculado para la fecha de producción
     ultima_fecha_produc = fields.Datetime(string = 'Última fecha de producción', compute = '_compute_ultima_fecha_produc')
     ultima_cantidad_produc = fields.Float(string= 'Última cantidad producida', compute = '_compute_ultima_cantidad_produc')
@@ -30,11 +43,10 @@ class Recetas(models.Model):
     #Relación Many2many con los alérgenos
     alergenos_ids = fields.Many2many(
         'obrador.alergenos', #Modelo relacionado
-        'recetas_alergenos_rel', #Tabla intermedia
-        'receta_id', #Campo en la tabla de ESTE modelo
-        'alergeno_id', #Campo en la tabla del modelo relacionado
+        compute = '_compute_alergenos',
+        store=True,
         string = 'Alérgenos',
-        help = 'Selecciona uno o más alérgenos para esta receta'
+
         
     )
 
@@ -82,7 +94,25 @@ class Recetas(models.Model):
                 record.ultima_cantidad_produc = ultima_produc.product_qty
             else:
                 record.ultima_cantidad_produc = 0.0
-
+    
+    #Se ejecuta automaticamente cuando cammbia el producto (para mantener el one2one con productos)
+    @api.depends('producto_ids')
+    def _compute_producto_id(self):
+        for record in self:
+            record.producto_id = record.producto_ids[:1].id if record.producto_ids else False
+    
+    def _inverse_producto_id(self):
+        for record in self:
+            if record.producto_ids:
+                record.producto_ids.receta_id = False
+            if record.producto_id:
+                record.producto_id.receta_id = record
+    
+    #Enseñar automaticamente los alergenos una vez añadido los ingredientes
+    @api.depends('producto_id.alergenos_ids')
+    def _compute_alergenos(self):
+        for record in self:
+            record.alergenos_ids = record.producto_id.alergenos_ids 
     
 
 
