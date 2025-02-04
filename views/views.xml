@@ -3,6 +3,20 @@
 
     <!-- actions opening views on models -->
 
+    <!-- Nuevo product.product form view-->
+    <record id="view_product_product_form" model="ir.ui.view">
+      <field name="name">product.product.form</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref = "product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <sheet position="inside">
+          <group>
+            <field name= "alergenos_ids" widget="many2many_tags" string="Alérgenos"/>
+          </group>
+        </sheet>
+      </field>
+    </record>
+
     <record model="ir.actions.act_window" id="obrador.action_window_recetas">
       <field name="name">Recetas</field>
       <field name="res_model">obrador.recetas</field>
@@ -40,7 +54,7 @@
                 <field name = "categ"/>
               </group>
               <group>
-                <field name = "alergenos_ids" widget = "many2many_checkboxes"/> 
+                <field name = "alergenos_ids" widget = "many2many_tags"/> 
                 <field name="notas"/>               
               </group>
             </group> 
