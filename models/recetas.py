@@ -14,6 +14,7 @@ class Recetas(models.Model):
     temp = fields.Integer(string='Temp. cocción (ºC)')
     cant = fields.Integer(string='Cantidad receta (u)')
     peso = fields.Float(string='Peso total (kg)')
+    receta_instr = fields.Html(string='Instrucciones/Pasos')
     #Campo calculado para la fecha de producción
     ultima_fecha_produc = fields.Datetime(string = 'Última fecha de producción', compute = '_compute_ultima_fecha_produc')
     ultima_cantidad_produc = fields.Float(string= 'Última cantidad producida', compute = '_compute_ultima_cantidad_produc')

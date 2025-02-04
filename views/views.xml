@@ -45,17 +45,20 @@
                 <field name="notas"/>
               </group>
               <group>
-                <field name = "alergenos_ids" widget= "many2many_tags"/>
-              </group> 
+                <field name = "alergenos_ids"/>
+              </group>
+            </group> 
+            <group>
+              <field name = "ingredientes_ids" >
+                <tree editable= "bottom">
+                  <field name ="producto_id"/>
+                  <field name = "cantidad"/>
+                </tree>
+              </field>
             </group>
             <group>
-                <field name = "ingredientes_ids" >
-                  <tree editable= "bottom">
-                    <field name ="producto_id"/>
-                    <field name = "cantidad"/>
-                  </tree>
-                </field>
-              </group>
+              <field name ="receta_instr" widget="html"/>
+            </group>
           </sheet>
         </form>
       </field>
