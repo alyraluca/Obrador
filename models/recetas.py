@@ -8,7 +8,7 @@ class Recetas(models.Model):
     
     #Relación Many2one con los productos. UNA receta solo puede estar relacionada con UN producto
     #Reemplaza el One2one
-    producto_id = fields.Many2one('product.product', string = 'Producto', ondelete="cascade", unique=True)
+    producto_id = fields.Many2one('product.product', string = 'Producto', ondelete="cascade", unique=True, required=True)
 
     tiempo = fields.Integer(string='Tiempo cocción (min)')
     temp = fields.Integer(string='Temp. cocción (ºC)')

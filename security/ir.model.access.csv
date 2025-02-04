@@ -4,3 +4,4 @@ access_obrador_graficas,obrador.graficas,model_obrador_graficas,base.group_user,
 access_obrador_recetas,obrador.recetas,model_obrador_recetas,base.group_user,1,1,1,1
 access_obrador_remanentes,obrador.remanentes,model_obrador_remanentes,base.group_user,1,1,1,1
 access_obrador_receta_ingrediente,obrador.receta.ingrediente,model_obrador_receta_ingrediente,base.group_user,1,1,1,1
+access_product_inherit,obrador.product.inherit,model_product_product,base.group_user,1,1,1,1
