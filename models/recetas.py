@@ -113,7 +113,7 @@ class Recetas(models.Model):
     
 
 
-     '''
+    '''
     #Nuevo
     @api.onchange('ingredientes_ids')
     def _update_alergenos_from_ingredientes(self):

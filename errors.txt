@@ -1,61 +1,105 @@
-25-02-03 10:57:39,060 1 ERROR 2425_ALEXANDRA_SAVU_10227633 odoo.modules.registry: Failed to load registry 
-odoodock-web-1     | Traceback (most recent call last):
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 63, in __new__
-odoodock-web-1     |     return cls.registries[db_name]
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 71, in wrapper
-odoodock-web-1     |     return func(self, *args, **kwargs)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
-odoodock-web-1     |     a = self.d[obj]
-odoodock-web-1     | KeyError: '2425_ALEXANDRA_SAVU_10227633'
+(rec)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/tools/convert.py", line 580, in _tag_record
+odoodock-web-1     |     record = model._load_records([data], self.mode == 'update')
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/models.py", line 4258, in _load_records
+odoodock-web-1     |     records = self._load_records_create([data['values'] for data in to_create])
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/models.py", line 4163, in _load_records_create
+odoodock-web-1     |     return self.create(values)
+odoodock-web-1     |   File "<decorator-gen-42>", line 2, in create
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/api.py", line 348, in _model_create_multi
+odoodock-web-1     |     return create(self, arg)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 489, in create
+odoodock-web-1     |     return super(View, self).create(vals_list)
+odoodock-web-1     |   File "<decorator-gen-62>", line 2, in create
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/api.py", line 348, in _model_create_multi
+odoodock-web-1     |     return create(self, arg)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_fields.py", line 534, in create
+odoodock-web-1     |     recs = super().create(vals_list)
+odoodock-web-1     |   File "<decorator-gen-13>", line 2, in create
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/api.py", line 348, in _model_create_multi
+odoodock-web-1     |     return create(self, arg)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/models.py", line 3925, in create
+odoodock-web-1     |     fields[0].determine_inverse(batch_recs)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1207, in determine_inverse
+odoodock-web-1     |     determine(self.inverse, records)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/fields.py", line 82, in determine
+odoodock-web-1     |     return needle(*args)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 307, in _inverse_arch
+odoodock-web-1     |     view.write(data)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 507, in write
+odoodock-web-1     |     res = super(View, self).write(self._compute_defaults(vals))
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/models.py", line 3709, in write
+odoodock-web-1     |     real_recs._validate_fields(vals, inverse_fields)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/models.py", line 1270, in _validate_fields
+odoodock-web-1     |     check(self)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 418, in _check_xml
+odoodock-web-1     |     )).with_traceback(e.__traceback__) from None
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 398, in _check_xml
+odoodock-web-1     |     view.postprocess_and_fields(view_doc, validate=True)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 857, in postprocess_and_fields
+odoodock-web-1     |     arch, name_manager = self._postprocess_view(node, model, validate=validate)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 869, in _postprocess_view
+odoodock-web-1     |     self.postprocess(node, [], editable, name_manager)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 969, in postprocess
+odoodock-web-1     |     self.postprocess(child, current_node_path, node_info['editable'], name_manager)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 969, in postprocess
+odoodock-web-1     |     self.postprocess(child, current_node_path, node_info['editable'], name_manager)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 969, in postprocess
+odoodock-web-1     |     self.postprocess(child, current_node_path, node_info['editable'], name_manager)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 960, in postprocess
+odoodock-web-1     |     validator(node, name_manager, node_info)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 1096, in _validate_tag_field
+odoodock-web-1     |     self.handle_view_error(msg)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 680, in handle_view_error
+odoodock-web-1     |     raise ValueError(formatted_message).with_traceback(from_traceback) from from_exception
+odoodock-web-1     | odoo.exceptions.ValidationError: Ocurrió un error al validar la vista:
 odoodock-web-1     | 
-odoodock-web-1     | During handling of the above exception, another exception occurred:
+odoodock-web-1     | El campo "alergenos_ids" no existe en el modelo "product.product"
+odoodock-web-1     | 
+odoodock-web-1     | View name: product.product.form
+odoodock-web-1     | Error context:
+odoodock-web-1     |  view: ir.ui.view(1469,)
+odoodock-web-1     |  xmlid: view_product_product_form
+odoodock-web-1     |  view.model: product.product
+odoodock-web-1     |  view.parent: ir.ui.view(451,)
+odoodock-web-1     |  file: /mnt/extra-addons/obrador/views/views.xml
+odoodock-web-1     | 
+odoodock-web-1     | 
+odoodock-web-1     | The above exception was the direct cause of the following exception:
 odoodock-web-1     | 
 odoodock-web-1     | Traceback (most recent call last):
 odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 89, in new
 odoodock-web-1     |     odoo.modules.load_modules(registry._db, force_demo, status, update_module)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/loading.py", line 464, in load_modules
-odoodock-web-1     |     registry.setup_models(cr)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 276, in setup_models
-odoodock-web-1     |     model._setup_fields()
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/models.py", line 2852, in _setup_fields
-odoodock-web-1     |     field.setup_full(self)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/fields.py", line 418, in setup_full
-odoodock-web-1     |     self._setup_regular_full(model)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/fields.py", line 3128, in _setup_regular_full
-odoodock-web-1     |     invf = comodel._fields[self.inverse_name]
-odoodock-web-1     | KeyError: 'receta_id'
-odoodock-web-1     | 2025-02-03 10:57:39,080 1 INFO 2425_ALEXANDRA_SAVU_10227633 werkzeug: 172.18.0.1 - - [03/Feb/2025 10:57:39] "GET /web HTTP/1.1" 500 - 12 0.056 0.768
-odoodock-web-1     | Traceback (most recent call last):
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/service/wsgi_server.py", line 113, in application
-odoodock-web-1     |     return application_unproxied(environ, start_response)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/service/wsgi_server.py", line 88, in application_unproxied
-odoodock-web-1     |     result = odoo.http.root(environ, start_response)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/http.py", line 1298, in __call__
-odoodock-web-1     |     return self.dispatch(environ, start_response)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/http.py", line 1264, in __call__
-odoodock-web-1     |     return self.app(environ, start_wrapped)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/werkzeug/wsgi.py", line 766, in __call__
-odoodock-web-1     |     return self.app(environ, start_response)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/http.py", line 1471, in dispatch
-odoodock-web-1     |     odoo.registry(db).check_signaling()
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/__init__.py", line 104, in registry
-odoodock-web-1     |     return modules.registry.Registry(database_name)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 65, in __new__
-odoodock-web-1     |     return cls.new(db_name)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 89, in new
-odoodock-web-1     |     odoo.modules.load_modules(registry._db, force_demo, status, update_module)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/loading.py", line 464, in load_modules
-odoodock-web-1     |     registry.setup_models(cr)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 276, in setup_models
-odoodock-web-1     |     model._setup_fields()
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/models.py", line 2852, in _setup_fields
-odoodock-web-1     |     field.setup_full(self)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/fields.py", line 418, in setup_full
-odoodock-web-1     |     self._setup_regular_full(model)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/fields.py", line 3128, in _setup_regular_full
-odoodock-web-1     |     invf = comodel._fields[self.inverse_name]
-odoodock-web-1     | KeyError: 'receta_id'
-odoodock-web-1     | 2025-02-03 10:57:39,325 1 INFO ? werkzeug: 172.18.0.1 - - [03/Feb/2025 10:57:39] "GET /web?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 - - - -
-odoodock-web-1     | 2025-02-03 10:57:39,359 1 INFO ? werkzeug: 172.18.0.1 - - [03/Feb/2025 10:57:39] "GET /web?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 - - - -
-odoodock-web-1     | 2025-02-03 10:57:39,379 1 INFO ? werkzeug: 172.18.0.1 - - [03/Feb/2025 10:57:39] "GET /web?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 - - - -
-odoodock-web-1     | 2025-02-03 10:57:39,667 1 INFO ? werkzeug: 172.18.0.1 - - [03/Feb/2025 10:57:39] "GET /web?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 - - - -
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/loading.py", line 457, in load_modules
+odoodock-web-1     |     force, status, report, loaded_modules, update_module, models_to_check)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/loading.py", line 349, in load_marked_modules
+odoodock-web-1     |     perform_checks=perform_checks, models_to_check=models_to_check
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/loading.py", line 222, in load_module_graph
+odoodock-web-1     |     load_data(cr, idref, mode, kind='data', package=package)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/loading.py", line 69, in load_data
+odoodock-web-1     |     tools.convert_file(cr, package.name, filename, idref, mode, noupdate, kind)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/tools/convert.py", line 733, in convert_file
+odoodock-web-1     |     convert_xml_import(cr, module, fp, idref, mode, noupdate)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/tools/convert.py", line 799, in convert_xml_import
+odoodock-web-1     |     obj.parse(doc.getroot())
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/tools/convert.py", line 719, in parse
+odoodock-web-1     |     self._tag_root(de)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/tools/convert.py", line 677, in _tag_root
+odoodock-web-1     |     f(rec)
+odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/tools/convert.py", line 685, in _tag_root
+odoodock-web-1     |     )) from e
+odoodock-web-1     | odoo.tools.convert.ParseError: while parsing /mnt/extra-addons/obrador/views/views.xml:7, near
+odoodock-web-1     | <record id="view_product_product_form" model="ir.ui.view">
+odoodock-web-1     |       <field name="name">product.product.form</field>
+odoodock-web-1     |       <field name="model">product.product</field>
+odoodock-web-1     |       <field name="inherit_id" ref="product.product_template_only_form_view"/>
+odoodock-web-1     |       <field name="arch" type="xml">
+odoodock-web-1     |         <sheet position="inside">
+odoodock-web-1     |           <group>
+odoodock-web-1     |             <field name="alergenos_ids" widget="many2many_tags" string="Alérgenos"/>
+odoodock-web-1     |           </group>
+odoodock-web-1     |         </sheet>
+odoodock-web-1     |       </field>
+odoodock-web-1     |     </record>
+odoodock-web-1     | > /usr/lib/python3/dist-packages/odoo/tools/convert.py(685)_tag_root()
+odoodock-web-1     | -> )) from e
