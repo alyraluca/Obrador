@@ -23,7 +23,14 @@ class Alergenos(models.Model):
         'receta_id',
         string = 'Recetas'
     )
-    
+    #Nuevon añadido
+    product_ids = fields.Many2many(
+        'product.product',
+        'product_alergenos_rel',
+        'alergeno_id',
+        'product_id',
+        string='Productos'
+    )
 
     #Obtener los nombres de las recetas para visualizarlas en la lista
     @api.depends('recetas_ids')

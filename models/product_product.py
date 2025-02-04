@@ -1,7 +1,6 @@
 from odoo import models, fields, api
 
 class ProductProduct(models.Model):
-    _name = 'product.product' #Nuevo
     _inherit = 'product.product'
 
     receta_id = fields.One2many(
@@ -11,7 +10,7 @@ class ProductProduct(models.Model):
         unique=True
     )
 
-    #Nuevo
+    
     alergenos_ids = fields.Many2many(
         'obrador.alergenos',
         'product_alergenos_rel',

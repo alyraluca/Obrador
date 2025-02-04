@@ -4,16 +4,16 @@
     <!-- actions opening views on models -->
 
     <!-- Nuevo product.product form view-->
-    <record id="view_product_product_form" model="ir.ui.view">
-      <field name="name">product.product.form</field>
+    <record id="view_product_form_alergenos" model="ir.ui.view">
+      <field name="name">product.product.form.alergenos</field>
       <field name="model">product.product</field>
-      <field name="inherit_id" ref = "product.product_template_only_form_view"/>
+      <field name="inherit_id" ref = "product.product_normal_form_view"/>
       <field name="arch" type="xml">
-        <sheet position="inside">
+        <xpath expr="//sheet" position="inside">
           <group>
             <field name= "alergenos_ids" widget="many2many_tags" string="Alérgenos"/>
           </group>
-        </sheet>
+        </xpath>
       </field>
     </record>
 

@@ -1,71 +1,4 @@
-(rec)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/tools/convert.py", line 580, in _tag_record
-odoodock-web-1     |     record = model._load_records([data], self.mode == 'update')
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/models.py", line 4258, in _load_records
-odoodock-web-1     |     records = self._load_records_create([data['values'] for data in to_create])
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/models.py", line 4163, in _load_records_create
-odoodock-web-1     |     return self.create(values)
-odoodock-web-1     |   File "<decorator-gen-42>", line 2, in create
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/api.py", line 348, in _model_create_multi
-odoodock-web-1     |     return create(self, arg)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 489, in create
-odoodock-web-1     |     return super(View, self).create(vals_list)
-odoodock-web-1     |   File "<decorator-gen-62>", line 2, in create
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/api.py", line 348, in _model_create_multi
-odoodock-web-1     |     return create(self, arg)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_fields.py", line 534, in create
-odoodock-web-1     |     recs = super().create(vals_list)
-odoodock-web-1     |   File "<decorator-gen-13>", line 2, in create
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/api.py", line 348, in _model_create_multi
-odoodock-web-1     |     return create(self, arg)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/models.py", line 3925, in create
-odoodock-web-1     |     fields[0].determine_inverse(batch_recs)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/fields.py", line 1207, in determine_inverse
-odoodock-web-1     |     determine(self.inverse, records)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/fields.py", line 82, in determine
-odoodock-web-1     |     return needle(*args)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 307, in _inverse_arch
-odoodock-web-1     |     view.write(data)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 507, in write
-odoodock-web-1     |     res = super(View, self).write(self._compute_defaults(vals))
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/models.py", line 3709, in write
-odoodock-web-1     |     real_recs._validate_fields(vals, inverse_fields)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/models.py", line 1270, in _validate_fields
-odoodock-web-1     |     check(self)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 418, in _check_xml
-odoodock-web-1     |     )).with_traceback(e.__traceback__) from None
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 398, in _check_xml
-odoodock-web-1     |     view.postprocess_and_fields(view_doc, validate=True)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 857, in postprocess_and_fields
-odoodock-web-1     |     arch, name_manager = self._postprocess_view(node, model, validate=validate)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 869, in _postprocess_view
-odoodock-web-1     |     self.postprocess(node, [], editable, name_manager)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 969, in postprocess
-odoodock-web-1     |     self.postprocess(child, current_node_path, node_info['editable'], name_manager)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 969, in postprocess
-odoodock-web-1     |     self.postprocess(child, current_node_path, node_info['editable'], name_manager)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 969, in postprocess
-odoodock-web-1     |     self.postprocess(child, current_node_path, node_info['editable'], name_manager)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 960, in postprocess
-odoodock-web-1     |     validator(node, name_manager, node_info)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 1096, in _validate_tag_field
-odoodock-web-1     |     self.handle_view_error(msg)
-odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_ui_view.py", line 680, in handle_view_error
-odoodock-web-1     |     raise ValueError(formatted_message).with_traceback(from_traceback) from from_exception
-odoodock-web-1     | odoo.exceptions.ValidationError: Ocurrió un error al validar la vista:
-odoodock-web-1     | 
-odoodock-web-1     | El campo "alergenos_ids" no existe en el modelo "product.product"
-odoodock-web-1     | 
-odoodock-web-1     | View name: product.product.form
-odoodock-web-1     | Error context:
-odoodock-web-1     |  view: ir.ui.view(1469,)
-odoodock-web-1     |  xmlid: view_product_product_form
-odoodock-web-1     |  view.model: product.product
-odoodock-web-1     |  view.parent: ir.ui.view(451,)
-odoodock-web-1     |  file: /mnt/extra-addons/obrador/views/views.xml
-odoodock-web-1     | 
-odoodock-web-1     | 
-odoodock-web-1     | The above exception was the direct cause of the following exception:
+The above exception was the direct cause of the following exception:
 odoodock-web-1     | 
 odoodock-web-1     | Traceback (most recent call last):
 odoodock-web-1     |   File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 89, in new
@@ -103,3 +36,4 @@ odoodock-web-1     |       </field>
 odoodock-web-1     |     </record>
 odoodock-web-1     | > /usr/lib/python3/dist-packages/odoo/tools/convert.py(685)_tag_root()
 odoodock-web-1     | -> )) from e
+
