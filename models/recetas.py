@@ -5,10 +5,10 @@ class Recetas(models.Model):
     _description = 'Receta'
 
     name = fields.Char(string='Nombre')
-
+    
     #Relación Many2one con los productos. UNA receta solo puede estar relacionada con UN producto
-    #Mientras un producto puede estar relacionado con muchas recetas
-    producto_id = fields.Many2one('product.product', string = 'Producto', required = True)
+    #Reemplaza el One2one
+    producto_id = fields.Many2one('product.product', string = 'Producto', ondelete="cascade", unique=True)
 
     tiempo = fields.Integer(string='Tiempo cocción (min)')
     temp = fields.Integer(string='Temp. cocción (ºC)')
@@ -82,6 +82,10 @@ class Recetas(models.Model):
                 record.ultima_cantidad_produc = ultima_produc.product_qty
             else:
                 record.ultima_cantidad_produc = 0.0
+    
+    _sql_constraints = [
+        ('unique_receta_producto', 'UNIQUE(producto_id)', 'Cada producto solo puede tener una receta asociada')
+    ]
 
     
 
