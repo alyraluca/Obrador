@@ -3,22 +3,6 @@
 
     <!-- actions opening views on models -->
 
-    <record model="ir.ui.view" id="product_form_view_inherit" >
-      <field name="name">product.product.form.inherit</field>
-      <field name="model">product.product</field>
-      <field name="inherit_id" ref = "product_normal_form_view"/>
-      <field name="arch" type="xml">
-        <xpath expr="//sheet" position="inside">
-          <group>
-            <field name="alergenos_ids" widget= "many2many_tags"/> 
-          </group>
-          <group>
-            <field name="receta_id"/>
-          </group>
-        </xpath>
-      </field>
-    </record>
-
     <record model="ir.actions.act_window" id="obrador.action_window_recetas">
       <field name="name">Recetas</field>
       <field name="res_model">obrador.recetas</field>
