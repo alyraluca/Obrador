@@ -35,17 +35,13 @@
                 <field name = "producto_id"/>
                 <field name = "tiempo"/>
                 <field name = "temp"/>
-              </group>
-              <group>
                 <field name = "cant"/>
                 <field name = "peso"/>
                 <field name = "categ"/>
               </group>
-              <group> 
-                <field name="notas"/>
-              </group>
               <group>
-                <field name = "alergenos_ids"/>
+                <field name = "alergenos_ids" widget = "many2many_checkboxes"/> 
+                <field name="notas"/>               
               </group>
             </group> 
             <group>
