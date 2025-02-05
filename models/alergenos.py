@@ -23,9 +23,9 @@ class Alergenos(models.Model):
         'receta_id',
         string = 'Recetas'
     )
-    #Nuevon añadido
+    #Many2many con product.template
     product_ids = fields.Many2many(
-        'product.product',
+        'product.template',
         'product_alergenos_rel',
         'alergeno_id',
         'product_id',

@@ -10,7 +10,7 @@ class ProductProduct(models.Model):
         unique=True
     )
 
-    
+    '''
     alergenos_ids = fields.Many2many(
         'obrador.alergenos',
         'product_alergenos_rel',
@@ -19,3 +19,4 @@ class ProductProduct(models.Model):
         string='Alérgenos',
         help="Lista de alérgenos presentes en este producto"
     )
+    '''

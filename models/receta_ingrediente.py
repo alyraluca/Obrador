@@ -19,3 +19,5 @@ class RecetasIngrediente(models.Model):
         required=True
     )
     cantidad = fields.Float(string='Cantidad', required=True)
+
+    unidad_medida_id = fields.Char(string='Unidad', required=True)

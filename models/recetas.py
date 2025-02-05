@@ -95,6 +95,7 @@ class Recetas(models.Model):
     ]
 
     #Nuevo
+    '''
     @api.model
     def create(self, vals):
         receta = super(Recetas, self).create(vals)
@@ -109,7 +110,7 @@ class Recetas(models.Model):
     def _actualizar_alergenos(self):
         for receta in self:
             alergenos = receta.ingredientes_ids.mapped('producto_id.alergenos_ids')
-            receta.alergenos_ids = [(6,0,alergenos.ids)]
+            receta.alergenos_ids = [(6,0,alergenos.ids)] '''
     
 
 

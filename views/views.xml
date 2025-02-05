@@ -3,34 +3,41 @@
 
     <!-- actions opening views on models -->
 
-    <!-- Nuevo product.product form view-->
+    <!-- Nuevo product.product form view
+    product.product_template_form_view
+    product.product_normal_form_view
+  
     <record id="view_product_form_alergenos" model="ir.ui.view">
-      <field name="name">product.product.form.alergenos</field>
-      <field name="model">product.product</field>
-      <field name="inherit_id" ref = "product.product_normal_form_view"/>
+      <field name="name">product.template.form.alergenos</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref = "product.product_template_form_view"/>
       <field name="arch" type="xml">
-        <xpath expr="//sheet" position="inside">
-          <group>
-            <field name= "alergenos_ids" widget="many2many_tags" string="Alérgenos"/>
-          </group>
+        <xpath expr="//notebook" position="inside">
+          <page name="alergenos" string="Alérgenos">
+            <group>
+              <field name= "alergenos_ids" widget="many2many_tags" string="Alérgenos"/>
+            </group>
+          </page>
         </xpath>
-      </field>
+      </field> 
     </record>
+    -->
 
     <record model="ir.actions.act_window" id="obrador.action_window_recetas">
       <field name="name">Recetas</field>
       <field name="res_model">obrador.recetas</field>
-      <field name="view_mode">tree,form</field> 
+      <field name="view_mode">tree,form</field>
+      <field name = "context">{'group_by': 'categ'}</field> 
     </record>
 
     <record model="ir.ui.view" id="obrador.recetas_tree_view">
       <field name="name">Recetas</field>
       <field name="model">obrador.recetas</field>
       <field name="arch" type="xml">
-        <tree>
+        <tree string = "Recetas">
           <field name="producto_id" string = "Producto" />
           <field name="cant" string = "Cantidad receta"/>
-          <field name="categ" string = "Categoria"/>
+          <field name="categ" string = "Categoria" group="yes"/>
           <field name= "alergenos_ids" string = "Alérgenos"  widget = "many2many_tags"/>
           <field name= "ultima_fecha_produc" string = "Fecha última producción"/>
           <field name = 'ultima_cantidad_produc' />
@@ -63,6 +70,7 @@
                 <tree editable= "bottom">
                   <field name ="producto_id"/>
                   <field name = "cantidad"/>
+                  <field name= "unidad_medida_id" />
                 </tree>
               </field>
             </group>
