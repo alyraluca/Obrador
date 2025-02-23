@@ -12,7 +12,6 @@ class Recetas(models.Model):
         'product.product', 
         string = 'Producto', 
         ondelete="cascade", 
-        unique=True, 
         required=True
         )
     
@@ -33,19 +32,37 @@ class Recetas(models.Model):
          ('Savoury', 'Salado')],
         string='Categoria',
         required=True
-        )
+        )         
 
     #Relación Many2many con los alérgenos
     alergenos_ids = fields.Many2many(
-        'obrador.alergenos', #Modelo relacionado
-        'recetas_alergenos_rel', #Tabla intermedia
-        'receta_id', #Campo en la tabla de ESTE modelo
-        'alergeno_id', #Campo en la tabla del modelo relacionado
-        string = 'Alérgenos',
-        help = 'Alérgenos detectados en los ingredientes de la receta'#Nuevo
-        
+        'obrador.alergenos',
+        compute='_compute_alergenos',
+        store=True
     )
-    
+
+    @api.depends('ingredientes_ids.alergenos_ids')
+    def _compute_alergenos(self):
+        for receta in self:
+            # Unir todos los alérgenos de los ingredientes sin duplicados
+            receta.alergenos_ids = receta.ingredientes_ids.mapped('alergenos_ids')
+
+
+    '''@api.model
+    def create(self, vals):
+        receta = super(Recetas, self).create(vals)
+        receta._actualizar_alergenos()
+        return receta
+
+    def write(self, vals):
+        res = super(Recetas, self).write(vals)
+        self._actualizar_alergenos()
+        return res
+
+    def _actualizar_alergenos(self):
+        for receta in self:
+            alergenos = receta.ingredientes_ids.mapped('producto_id.alergenos_ids')
+            receta.alergenos_ids = [(6,0,alergenos.ids)]'''
 
     #Relación One2many con los ingredientes del modulo receta_ingrediente 
     ingredientes_ids = fields.One2many(
@@ -94,32 +111,5 @@ class Recetas(models.Model):
         ('unique_receta_producto', 'UNIQUE(producto_id)', 'Cada producto solo puede tener una receta asociada')
     ]
 
-    #Nuevo
-    '''
-    @api.model
-    def create(self, vals):
-        receta = super(Recetas, self).create(vals)
-        receta._actualizar_alergenos()
-        return receta
 
-    def write(self, vals):
-        res = super(Recetas, self).write(vals)
-        self._actualizar_alergenos()
-        return res
-    
-    def _actualizar_alergenos(self):
-        for receta in self:
-            alergenos = receta.ingredientes_ids.mapped('producto_id.alergenos_ids')
-            receta.alergenos_ids = [(6,0,alergenos.ids)] '''
-    
-
-
-    '''
-    #Nuevo
-    @api.onchange('ingredientes_ids')
-    def _update_alergenos_from_ingredientes(self):
-        for receta in self:
-            alergenos = receta.ingredientes_ids.mapped('producto_id_alergenos_ids')
-            receta.alergenos_ids = [(6,0, alergenos.ids)]
-    '''
     

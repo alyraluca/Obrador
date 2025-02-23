@@ -6,22 +6,60 @@
     <!-- Nuevo product.product form view
     product.product_template_form_view
     product.product_normal_form_view
+
+    
+    -->
   
+    
     <record id="view_product_form_alergenos" model="ir.ui.view">
       <field name="name">product.template.form.alergenos</field>
       <field name="model">product.template</field>
       <field name="inherit_id" ref = "product.product_template_form_view"/>
       <field name="arch" type="xml">
-        <xpath expr="//notebook" position="inside">
+        <xpath expr="//sheet/notebook/page[@name='inventory']" position="after">
           <page name="alergenos" string="Alérgenos">
             <group>
               <field name= "alergenos_ids" widget="many2many_tags" string="Alérgenos"/>
+              
+            </group>
+            
+          </page>
+          <page name="receta" string="Receta">
+            <group>
+              <field name="receta_id" string="Receta" />
             </group>
           </page>
         </xpath>
+        <xpath expr="//sheet/notebook/page[@name='general_information']" position="inside">
+          <group>
+            <field name = "perecedero"/>
+          </group>
+        </xpath>
       </field> 
     </record>
-    -->
+   
+    <!--
+    <record id="product.action_window_template_window" model="ir.action.act.window">
+      <field name="name">Product template window</field>
+      <field name="res_model">product.template</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="product.action_window_template_tree" model="ir.action.act.window.view">
+      <field name="sequence" eval="1"></field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="product.product_template_kanban_view"></field>
+      <field name="act_window_id" ref="product.action_window_template_window"></field>
+    </record>
+    <record id="product.action_window_template_form" model="ir.action.act.window.view">
+      <field name="sequence" eval="2"></field>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="view_product_form_alergenos"></field>
+      <field name="act_window_id" ref="product.action_window_template_window"></field>
+    </record>
+  -->
+
+
 
     <record model="ir.actions.act_window" id="obrador.action_window_recetas">
       <field name="name">Recetas</field>
@@ -37,7 +75,7 @@
         <tree string = "Recetas">
           <field name="producto_id" string = "Producto" />
           <field name="cant" string = "Cantidad receta"/>
-          <field name="categ" string = "Categoria" group="yes"/>
+          <field name="categ" string = "Categoria"/>
           <field name= "alergenos_ids" string = "Alérgenos"  widget = "many2many_tags"/>
           <field name= "ultima_fecha_produc" string = "Fecha última producción"/>
           <field name = 'ultima_cantidad_produc' />
@@ -58,10 +96,10 @@
                 <field name = "temp"/>
                 <field name = "cant"/>
                 <field name = "peso"/>
-                <field name = "categ"/>
+                <field name="categ"></field>
               </group>
               <group>
-                <field name = "alergenos_ids" widget = "many2many_tags"/> 
+                <field name = "alergenos_ids" widget="many2many_tags" /> 
                 <field name="notas"/>               
               </group>
             </group> 

@@ -21,3 +21,14 @@ class RecetasIngrediente(models.Model):
     cantidad = fields.Float(string='Cantidad', required=True)
 
     unidad_medida_id = fields.Char(string='Unidad', required=True)
+
+    alergenos_ids = fields.Many2many(
+        'obrador.alergenos',
+        compute='_compute_alergenos',
+        store=True
+    )
+
+    @api.depends('producto_id.alergenos_ids')
+    def _compute_alergenos(self):
+        for ingrediente in self:
+            ingrediente.alergenos_ids = ingrediente.producto_id.alergenos_ids
