@@ -8,4 +8,3 @@ from . import remanentes
 from . import receta_ingrediente
 from . import product_template
 from . import product_product
-from . import tpvCierreAutomatico
