@@ -25,10 +25,16 @@ class RecetasIngrediente(models.Model):
     alergenos_ids = fields.Many2many(
         'obrador.alergenos',
         compute='_compute_alergenos',
-        store=True
+        store=True,
+        ondelete = 'cascade'
     )
 
     @api.depends('producto_id.alergenos_ids')
     def _compute_alergenos(self):
         for ingrediente in self:
             ingrediente.alergenos_ids = ingrediente.producto_id.alergenos_ids
+    
+    '''@api.depends('producto_id.alergenos_ids')
+    def _compute_alergenos(self):
+        for ingrediente in self:
+            ingrediente.alergenos_ids = ingrediente.producto_id.alergenos_ids.mapped('id')'''

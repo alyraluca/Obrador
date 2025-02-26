@@ -135,8 +135,8 @@
       <field name="arch" type="xml">
         <tree editable="bottom">
           <field name="name"/>
-          <field name="recetas_count" readonly = "1"/>
-          <field name="recetas_ids" readonly = "1" widget = "many2many_tags"/>
+          <field name="product_count" readonly = "1"/>
+          <field name="product_ids" readonly = "1" widget="many2many_tags" />
         </tree>
       </field>
     </record>
@@ -148,10 +148,56 @@
       <field name="res_model">obrador.remanentes</field>
       <field name="view_mode">tree,form</field>
     </record>
+
+    <record model="ir.ui.view" id="obrador.remanentes_tree_view">
+      <field name="name">Remanentes</field>
+      <field name="model">obrador.remanentes</field>
+      <field name="arch" type="xml">
+        <tree string="Sobras" editable="bottom" >
+          <field name="producto_id"/>
+          <field name="fecha"/>
+          <field name="sobras"/>
+          <field name="produccion" readonly = "1"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="obrador.remanentes_form_view" model="ir.ui.view">
+      <field name="name">Remanentes-Form</field>
+      <field name="model">obrador.remanentes</field>
+      <field name="arch" type="xml">
+          <form string="Sobras">
+            <sheet>
+              <group>
+                <field name="producto_id"/>
+                <field name="fecha"/>
+                <field name="sobras"/>
+              </group>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+
+    
+
     <record model="ir.actions.act_window" id="obrador.action_window_graficas">
       <field name="name">Gráficas</field>
       <field name="res_model">obrador.graficas</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">graph</field>
+    </record>
+
+    <record id="obrador.graficas_view_graph" model="ir.ui.view">
+      <field name="name">obrador.graficas.graph</field>
+      <field name="model">obrador.graficas</field>
+      <field name="arch" type="xml" >
+        <graph string="Gráficas de Producción y Sobrante" type = "bar" interval = "day">
+          <field name="fecha" type = "row" interval = "day"/>
+          <field name="produccion" type = "measure"/>
+          <field name="sobras" type = "measure"/>
+          <field name="nombre" type="dimension"/>
+        </graph>
+      </field>
     </record>
 
 

@@ -11,7 +11,7 @@ class ProductTemplate(models.Model):
         'alergeno_id',
         string='Alérgenos',
         help='Lista de alérgenos presentes en este producto',
-        
+        store=True
     )
     perecedero = fields.Boolean(
         string="Perecedero", 
@@ -22,7 +22,6 @@ class ProductTemplate(models.Model):
         'obrador.recetas', 
         string="Receta", 
         compute='_compute_receta', 
-        #store=True, 
         help="Receta asociada a este producto"
     )
 
@@ -33,3 +32,5 @@ class ProductTemplate(models.Model):
             if producto:
                 receta = self.env['obrador.recetas'].search([('producto_id', '=', producto.id)], limit=1)
                 record.receta_id = receta.id if receta else False
+    
+    

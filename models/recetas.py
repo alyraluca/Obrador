@@ -34,7 +34,7 @@ class Recetas(models.Model):
         required=True
         )         
 
-    #Relación Many2many con los alérgenos
+    #Relación Many2many con los alérgenos de los ingredeintes
     alergenos_ids = fields.Many2many(
         'obrador.alergenos',
         compute='_compute_alergenos',
@@ -47,22 +47,12 @@ class Recetas(models.Model):
             # Unir todos los alérgenos de los ingredientes sin duplicados
             receta.alergenos_ids = receta.ingredientes_ids.mapped('alergenos_ids')
 
-
-    '''@api.model
-    def create(self, vals):
-        receta = super(Recetas, self).create(vals)
-        receta._actualizar_alergenos()
-        return receta
-
-    def write(self, vals):
-        res = super(Recetas, self).write(vals)
-        self._actualizar_alergenos()
-        return res
-
-    def _actualizar_alergenos(self):
+    '''@api.depends('ingredientes_ids.producto_id.alergenos_ids')
+    def _compute_alergenos(self):
         for receta in self:
+            # Obtener los alérgenos de los productos usados como ingredientes
             alergenos = receta.ingredientes_ids.mapped('producto_id.alergenos_ids')
-            receta.alergenos_ids = [(6,0,alergenos.ids)]'''
+            receta.alergenos_ids = alergenos'''
 
     #Relación One2many con los ingredientes del modulo receta_ingrediente 
     ingredientes_ids = fields.One2many(
