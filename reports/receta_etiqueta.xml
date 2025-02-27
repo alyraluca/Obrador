@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+        <record id="receta_etiqueta_report" model="ir.actions.report">
+            <field name="name">Etiqueta</field>
+            <field name="model">obrador.recetas</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">obrador.report_etiqueta</field>
+            <field name="binding_model_id" ref = "model_obrador_recetas"/>
+            <field name="binding_type">report</field>
+            <field name="binding_view_types">list,form</field>
+            <field name="print_report_name">'Etiqueta - %s' % (object.name)</field>
+        </record>
+        
+        <template id="obrador.report_etiqueta" >
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="receta">
+                    <t t-call= "web.external_layout">
+                        <style>
+                            .label-box {
+                                border: 2px solid black;
+                                padding: 10px;
+                                width: 800px;
+                                text-align: left;
+                                font-size: 12px;
+                                font-family: Arial, sans-serif;
+                            }
+                            .product-name {
+                                text-align: left;
+                                font-size: 16px;
+                                font-weight: bold;
+                                margin: 5px 0;
+                            }
+
+                            .info {
+                                margin: 2px 0;
+                            }
+                        </style>
+                        <!--Cntenedor de la etiqueta-->
+                        <div class="label-box">
+                            
+                            <!-- Nombre del producto -->
+                            <h2 class="product-name">
+                                <t t-esc="receta.name"/>
+                            </h2>
+
+                            <!-- Peso -->
+                            <p class="info"><strong>Peso por unidad:</strong> 
+                                <t t-if="receta.cant &gt; 0">
+                                    <t t-esc="receta.peso / receta.cant"/>
+                                </t>
+                                <t t-else="receta.peso">N/A</t> kg
+                            </p>
+
+                            <!-- Ingredientes -->
+                            <p class="info"><strong>Ingredientes:</strong> 
+                                <t t-set="ingredientes_texto" t-value="', '.join(receta.ingredientes_ids.mapped('producto_id.name'))"/>
+                                <t t-esc="ingredientes_texto"/>
+                            </p>
+
+                            <!-- Alérgenos -->
+                            <p class="info"><strong>Alérgenos:</strong> 
+                                <t t-set="alergenos_texto" t-value="', '.join(receta.alergenos_ids.mapped('name'))"/>
+                                <t t-esc="alergenos_texto"/>
+                            </p>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

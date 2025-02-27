@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+        <record id="sobras_report" model="ir.actions.report">
+            <field name="name">Remanentes</field>
+            <field name="model">obrador.remanentes</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">obrador.report_remanentes</field>
+            <field name="binding_model_id" ref = "model_obrador_remanentes"/>
+            <field name="binding_type">report</field>
+            <field name="binding_view_types">list,form</field>
+            <field name="print_report_name">'Sobras - %s' % (object.producto_id.name)</field>
+        </record>
+
+        <!-- Plantilla del informe de remanentes -->
+        <template id="obrador.report_remanentes">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 style="text-align: center; font-size: 18px;">
+                            Resumen de Remanentes por Producto
+                        </h2>
+
+                        <!-- Calcular el intervalo de fechas -->
+                        <t t-set="fechas" t-value="docs.mapped('fecha')"/>
+                        <t t-set="fecha_inicio" t-value="min(fechas)"/>
+                        <t t-set="fecha_fin" t-value="max(fechas)"/>
+
+                        <p><strong>Rango de Fechas:</strong> <t t-esc="fecha_inicio"/> a <t t-esc="fecha_fin"/></p>
+
+                        <!-- Sumas totales por producto -->
+                        <h3 style="margin-top: 20px;">Resumen por Producto</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Sobrantes Totales</th>
+                                    <th>Cantidad Producida Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Inicialización del diccionario vacío fuera del bucle 'foreach' de remanentes -->
+                                <t t-set="productos_agrupados" t-value="{}"/>
+
+                                <!-- Recorrer los remanentes y agrupar por producto -->
+                                <t t-foreach="docs" t-as="remanentes">
+                                    <t t-if="remanentes.producto_id">
+                                        <!-- Verifica si la clave 'producto_id.id' está en el diccionario, si no, la inicializa -->
+                                        <t t-if="not productos_agrupados.get(remanentes.producto_id.id)">
+                                            <t t-set="productos_agrupados[remanentes.producto_id.id]" t-value="{'sobras': 0.0, 'produccion': 0.0}"/>
+                                        </t>
+
+                                        <!-- Sumar las sobras -->
+                                        <t t-set="productos_agrupados[remanentes.producto_id.id]['sobras']" t-value="productos_agrupados[remanentes.producto_id.id]['sobras'] + remanentes.sobras"/>
+
+                                        <!-- Sumar la producción, asegurándose de que 'produccion' está disponible -->
+                                        <t t-if="remanentes.produccion or remanentes.produccion == 0">
+                                            <t t-set="productos_agrupados[remanentes.producto_id.id]['produccion']" t-value="productos_agrupados[remanentes.producto_id.id]['produccion'] + remanentes.produccion"/>
+                                        </t>
+                                    </t>
+                                </t>
+
+                                <!-- Mostrar los resultados por producto -->
+                                <t t-foreach="productos_agrupados.items()" t-as="item">
+                                    <tr>
+                                        <td><t t-esc="item[0].name"/></td> <!-- Producto -->
+                                        <td><t t-esc="item[1]['sobras']"/></td> <!-- Total sobrante -->
+                                        <td><t t-esc="item[1]['produccion']"/></td> <!-- Total produccion -->
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+    
+
+    
+
+</odoo>

@@ -68,6 +68,7 @@
       <field name = "context">{'group_by': 'categ'}</field> 
     </record>
 
+
     <record model="ir.ui.view" id="obrador.recetas_tree_view">
       <field name="name">Recetas</field>
       <field name="model">obrador.recetas</field>
@@ -146,22 +147,23 @@
     <record model="ir.actions.act_window" id="obrador.action_window_remanentes">
       <field name="name">Remanentes</field>
       <field name="res_model">obrador.remanentes</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree</field>
+      <field name = "context">{'group_by': 'fecha', 'order': 'fecha desc'}</field>
     </record>
 
     <record model="ir.ui.view" id="obrador.remanentes_tree_view">
       <field name="name">Remanentes</field>
       <field name="model">obrador.remanentes</field>
       <field name="arch" type="xml">
-        <tree string="Sobras" editable="bottom" >
-          <field name="producto_id"/>
+        <tree editable="bottom">
+          <field name="producto_id" widget="many2one"/>
           <field name="fecha"/>
           <field name="sobras"/>
           <field name="produccion" readonly = "1"/>
         </tree>
       </field>
     </record>
-
+    <!--
     <record id="obrador.remanentes_form_view" model="ir.ui.view">
       <field name="name">Remanentes-Form</field>
       <field name="model">obrador.remanentes</field>
@@ -176,7 +178,7 @@
             </sheet>
           </form>
         </field>
-    </record>
+    </record>-->
 
 
     

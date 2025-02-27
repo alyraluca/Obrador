@@ -31,6 +31,9 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'reports/receta_report.xml',
+        'reports/receta_etiqueta.xml',
+        'reports/sobras_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

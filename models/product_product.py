@@ -9,4 +9,6 @@ class ProductProduct(models.Model):
         'producto_id',
         string='Receta'
     )
+
+    
     

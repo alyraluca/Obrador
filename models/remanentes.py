@@ -7,7 +7,7 @@ class Remanentes(models.Model):
     _name ='obrador.remanentes'
     _description = 'Remanentes' 
     
-    nombre = fields.Char(string='Nombre producto')
+    _order = "fecha desc"
     
     producto_id = fields.Many2one(
         'product.template',
@@ -40,6 +40,11 @@ class Remanentes(models.Model):
                 record.produccion = sum(produccion.mapped('product_qty'))
             else:
                 record.produccion = 0.0
+    
+    _sql_constraints = [
+    ('unique_product_per_day', 'UNIQUE(producto_id, fecha)',
+        'Ya existe un registro de sobras para este producto en la fecha seleccionada.')]
+
 
 
 

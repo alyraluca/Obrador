@@ -37,25 +37,3 @@ class Alergenos(models.Model):
             record.product_tags = ', '.join(productos_names) if productos_names else ''
 
 
-    '''@api.depends('product_ids.receta_id')
-    def _compute_recetas_ids(self):
-        """Calcula las recetas que contienen este alérgeno a través de los productos y sus ingredientes"""
-        for alergeno in self:
-            recetas = self.env['obrador.recetas'].search([
-                ('ingredientes_ids.producto_id.alergenos_ids', 'in', alergeno.id)
-            ])
-            alergeno.recetas_ids = [(6, 0, recetas.ids)]  # Establece los IDs de las recetas encontradas
-
-    @api.depends('recetas_ids')
-    def _compute_recetas_count(self):
-        """Cuenta todas las recetas que tienen este alérgeno"""
-        for record in self:
-            record.recetas_count = len(record.recetas_ids)
-
-    @api.depends('recetas_ids')
-    def _compute_recetas_tags(self):
-        """Genera una lista de nombres de recetas que contienen este alérgeno"""
-        for record in self:
-            recetas_names = record.recetas_ids.mapped('name')
-            record.recetas_tags = ', '.join(recetas_names) if recetas_names else '''''
-

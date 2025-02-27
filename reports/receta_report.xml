@@ -1,0 +1,63 @@
+<odoo>
+    <data >
+        <record id="model_obrador_recetas" model="ir.model">
+            <field name="name">Recetas</field>
+            <field name="model">obrador.recetas</field>
+        </record>   
+        <record id="receta_pdf_report" model="ir.actions.report">
+            <field name="name">Receta</field>
+            <field name="model">obrador.recetas</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">obrador.report_receta</field>
+            <field name="binding_model_id" ref = "model_obrador_recetas"/>
+            <field name="binding_type">report</field>
+            <field name="binding_view_types">list,form</field>
+            <field name="print_report_name">'Receta - %s' % (object.name)</field>
+        </record>
+
+        <template id="obrador.report_receta">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="receta">
+                    <t t-call= "web.external_layout">
+                        <div class="page">
+                            <h2 style = "text-align: center; font-size: 18xp;">
+                                <t t-esc="receta.name"/>
+                            </h2>
+                            <p><strong>Cantidad: </strong><t t-esc="receta.cant"/> unidades</p>
+                            <p><strong>Peso Total: </strong><t t-esc="receta.peso"/> kg</p>
+                            <p><strong>Temperatura: </strong><t t-esc="receta.temp"/> ºC</p>
+                            <p><strong>Tiempo Cocción: </strong><t t-esc="receta.tiempo"/> minutos</p>
+                            <p><strong>Ingredientes:</strong></p>
+                            <ul>
+                                <t t-foreach="receta.ingredientes_ids" t-as="ingrediente">
+                                    <li>
+                                        <t t-esc="ingrediente.producto_id.name"/>
+                                        <t t-esc="ingrediente.cantidad"/>
+                                        <t t-esc="ingrediente.unidad_medida_id"/>
+                                    </li>
+                                </t>
+                            </ul>   
+                            <p><strong>Instrucciones: </strong></p>
+                            <t t-raw="receta.receta_instr"/>
+
+                            <p><strong>Alérgenos:</strong></p>
+                            <ul>
+                                <t t-foreach="receta.alergenos_ids" t-as="alergeno">
+                                    <li>
+                                        <t t-esc="alergeno.name"/>
+                                    </li>
+                                </t>
+                            </ul>
+
+                            <p><strong>Notas: </strong><t t-esc="receta.notas"/></p>
+                        </div>
+                    </t>
+                </t>
+
+            </t>
+        </template>
+    
+    </data>
+    
+
+</odoo>
