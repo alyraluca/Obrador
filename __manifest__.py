@@ -34,9 +34,9 @@
         'reports/receta_report.xml',
         'reports/receta_etiqueta.xml',
         'reports/sobras_report.xml',
-        'data/data_alergenos.xml',
-        'data/data_productos.xml',
-        'data/data_receta.xml'
+        'data/demo/data_alergenos.xml',
+        'data/demo/data_productos.xml',
+        'data/demo/data_receta.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

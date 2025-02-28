@@ -1,5 +1,5 @@
 <odoo>
-    <data>
+    <data noupdate="1">
     <!--Productos usados como materia prima-->
         <record id="product_har_cent" model="product.template">
             <field name="name">Harina de Centeno</field>
