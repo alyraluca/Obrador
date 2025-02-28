@@ -26,15 +26,28 @@ class RecetasIngrediente(models.Model):
         'obrador.alergenos',
         compute='_compute_alergenos',
         store=True,
-        ondelete = 'cascade'
+        ondelete = 'cascade',
+        compute_sudo=True #New
     )
 
+    #Metodo para guardar la relación con los alergenos y que aparezca en la ficha del producto
+    def write(self, values):
+        res = super(RecetasIngrediente, self).write(values)
+        if 'producto_id' in values or 'alergenos_ids' in values:
+            if self.receta_id:
+                self.receta_id._compute_alergenos()  # Volver a calcular los alérgenos de la receta
+        return res
+
+
+    #
     @api.depends('producto_id.alergenos_ids')
     def _compute_alergenos(self):
         for ingrediente in self:
-            ingrediente.alergenos_ids = ingrediente.producto_id.alergenos_ids
-    
+            ingrediente.alergenos_ids = [(6, 0, ingrediente.producto_id.alergenos_ids.ids)]
+
     '''@api.depends('producto_id.alergenos_ids')
     def _compute_alergenos(self):
         for ingrediente in self:
-            ingrediente.alergenos_ids = ingrediente.producto_id.alergenos_ids.mapped('id')'''
+            ingrediente.alergenos_ids = ingrediente.producto_id.alergenos_ids'''
+    
+    

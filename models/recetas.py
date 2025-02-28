@@ -41,18 +41,35 @@ class Recetas(models.Model):
         store=True
     )
 
-    @api.depends('ingredientes_ids.alergenos_ids')
+    '''@api.depends('ingredientes_ids.alergenos_ids')
     def _compute_alergenos(self):
         for receta in self:
             # Unir todos los alérgenos de los ingredientes sin duplicados
-            receta.alergenos_ids = receta.ingredientes_ids.mapped('alergenos_ids')
-
+            receta.alergenos_ids = receta.ingredientes_ids.mapped('alergenos_ids')'''
+    
+    #Old new
     '''@api.depends('ingredientes_ids.producto_id.alergenos_ids')
     def _compute_alergenos(self):
         for receta in self:
-            # Obtener los alérgenos de los productos usados como ingredientes
-            alergenos = receta.ingredientes_ids.mapped('producto_id.alergenos_ids')
-            receta.alergenos_ids = alergenos'''
+            alergenos = set()
+            for ingrediente in receta.ingredientes_ids:
+                alergenos.update(ingrediente.producto_id.alergenos_ids.ids)  # Obtener los IDs de los alérgenos
+            receta.alergenos_ids = [(6, 0, list(alergenos))]
+'''
+    @api.depends('ingredientes_ids.producto_id.alergenos_ids')
+    def _compute_alergenos(self):
+        for receta in self:
+            alergenos = set()
+            for ingrediente in receta.ingredientes_ids:
+                alergenos.update(ingrediente.producto_id.alergenos_ids.ids)  # Obtener los IDs de los alérgenos
+
+            # Guardar los alérgenos en la receta
+            receta.alergenos_ids = [(6, 0, list(alergenos))]
+
+            # Guardar los alérgenos también en el producto asociado
+            if receta.producto_id:
+                receta.producto_id.alergenos_ids = [(6, 0, list(alergenos))]
+
 
     #Relación One2many con los ingredientes del modulo receta_ingrediente 
     ingredientes_ids = fields.One2many(

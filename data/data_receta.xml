@@ -1,0 +1,54 @@
+<odoo>
+
+    <data>
+        <record id="receta_pan_quarta" model="obrador.recetas">
+            <field name="name">Barra de 1/4 normal</field>
+            <field name="producto_id" ref = "product_1/4"/>
+            <field name="notas">Receta de Salva mejorada</field>
+            <field name="tiempo">25</field>
+            <field name="temp">200</field>
+            <field name="cant">50</field>
+            <field name="peso">12.5</field>
+            <field name="receta_instr">
+                <![CDATA[
+                    <p>1. Mezclar harina, agua y sal.</p>
+                    <p>2. Añadir levadura y dejar fermentar.</p>
+                    <p>3. Hornear a 200ºC durante 25 min.</p>
+                ]]>
+            </field>
+            <field name="categ">Breads</field>
+        </record>
+        <!--Ingredientes para la barra de 1/4 normal-->
+        <record id="receta_ing_harina_trigo" model="obrador.receta.ingrediente">
+            <field name="receta_id" ref="receta_pan_quarta"/>
+            <field name="producto_id" ref="product_trigo"/>
+            <field name="cantidad">7.5</field>
+            <field name="unidad_medida_id">kg</field>
+        </record>
+
+        <record id="receta_ing_levadura" model="obrador.receta.ingrediente">
+            <field name="receta_id" ref="receta_pan_quarta"/>
+            <field name="producto_id" ref="product_levad_fres"/>
+            <field name="cantidad">10</field>
+            <field name="unidad_medida_id">g</field>
+        </record>
+
+        <record id="receta_ing_agua" model="obrador.receta.ingrediente">
+            <field name="receta_id" ref="receta_pan_quarta"/>
+            <field name="producto_id" ref="product_agua"/>
+            <field name="cantidad">4.5</field>
+            <field name="unidad_medida_id">L</field>
+        </record>
+
+        <record id="receta_ing_sal" model="obrador.receta.ingrediente">
+            <field name="receta_id" ref="receta_pan_quarta"/>
+            <field name="producto_id" ref="product_sal"/>
+            <field name="cantidad">5</field>
+            <field name="unidad_medida_id">g</field>
+        </record>
+        
+    
+    </data>
+    
+
+</odoo>

@@ -16,59 +16,59 @@
             <t t-call="web.html_container">
                 <t t-call="web.external_layout">
                     <div class="page">
-                        <h2 style="text-align: center; font-size: 18px;">
-                            Resumen de Remanentes por Producto
+                        <h2 style="text-align: center; font-size: 22px; margin-bottom: 20px;">
+                            Sobras Agrupadas por Producto
                         </h2>
 
-                        <!-- Calcular el intervalo de fechas -->
-                        <t t-set="fechas" t-value="docs.mapped('fecha')"/>
-                        <t t-set="fecha_inicio" t-value="min(fechas)"/>
-                        <t t-set="fecha_fin" t-value="max(fechas)"/>
+                        <t t-set="productos_agrupados" t-value="docs.mapped('producto_id')"/>
 
-                        <p><strong>Rango de Fechas:</strong> <t t-esc="fecha_inicio"/> a <t t-esc="fecha_fin"/></p>
-
-                        <!-- Sumas totales por producto -->
-                        <h3 style="margin-top: 20px;">Resumen por Producto</h3>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Producto</th>
-                                    <th>Sobrantes Totales</th>
-                                    <th>Cantidad Producida Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Inicialización del diccionario vacío fuera del bucle 'foreach' de remanentes -->
-                                <t t-set="productos_agrupados" t-value="{}"/>
-
-                                <!-- Recorrer los remanentes y agrupar por producto -->
-                                <t t-foreach="docs" t-as="remanentes">
-                                    <t t-if="remanentes.producto_id">
-                                        <!-- Verifica si la clave 'producto_id.id' está en el diccionario, si no, la inicializa -->
-                                        <t t-if="not productos_agrupados.get(remanentes.producto_id.id)">
-                                            <t t-set="productos_agrupados[remanentes.producto_id.id]" t-value="{'sobras': 0.0, 'produccion': 0.0}"/>
-                                        </t>
-
-                                        <!-- Sumar las sobras -->
-                                        <t t-set="productos_agrupados[remanentes.producto_id.id]['sobras']" t-value="productos_agrupados[remanentes.producto_id.id]['sobras'] + remanentes.sobras"/>
-
-                                        <!-- Sumar la producción, asegurándose de que 'produccion' está disponible -->
-                                        <t t-if="remanentes.produccion or remanentes.produccion == 0">
-                                            <t t-set="productos_agrupados[remanentes.producto_id.id]['produccion']" t-value="productos_agrupados[remanentes.producto_id.id]['produccion'] + remanentes.produccion"/>
-                                        </t>
-                                    </t>
-                                </t>
-
-                                <!-- Mostrar los resultados por producto -->
-                                <t t-foreach="productos_agrupados.items()" t-as="item">
-                                    <tr>
-                                        <td><t t-esc="item[0].name"/></td> <!-- Producto -->
-                                        <td><t t-esc="item[1]['sobras']"/></td> <!-- Total sobrante -->
-                                        <td><t t-esc="item[1]['produccion']"/></td> <!-- Total produccion -->
+                        <!-- Recorrer los productos agrupados -->
+                        <t t-foreach="productos_agrupados" t-as="producto">
+                            <h3 style="font-size: 16px; color: #333; margin-top: 20px;">
+                                <t t-esc="producto.name"/>
+                            </h3>
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                                <thead>
+                                    <tr style="background-color: #f0f0f0; text-align: left;">
+                                        <th style="padding: 10px; border: 1px solid #ccc;">Fecha</th>
+                                        <th style="padding: 10px; border: 1px solid #ccc;">Sobrantes</th>
+                                        <th style="padding: 10px; border: 1px solid #ccc;">Producidos</th>
                                     </tr>
-                                </t>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <!-- Inicializar acumuladores -->
+                                    <t t-set="total_sobras" t-value="0.0"/>
+                                    <t t-set="total_produccion" t-value="0.0"/>
+
+                                    <!-- Filtrar las entradas de ese producto -->
+                                    <t t-foreach="docs.filtered(lambda x: x.producto_id == producto)" t-as="remanente">
+                                        <tr style="background-color: #fff;">
+                                            <td style="padding: 10px; border: 1px solid #ddd;"><t t-esc="remanente.fecha"/></td>
+                                            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">
+                                                <t t-esc="remanente.sobras"/>
+                                            </td>
+                                            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">
+                                                <t t-esc="remanente.produccion"/>
+                                            </td>
+                                        </tr>
+                                        <!-- Sumar los valores a los totales -->
+                                        <t t-set="total_sobras" t-value="total_sobras + remanente.sobras"/>
+                                        <t t-set="total_produccion" t-value="total_produccion + remanente.produccion"/>
+                                    </t>
+
+                                    <!-- Fila de totales -->
+                                    <tr style="background-color: #f9f9f9; font-weight: bold;">
+                                        <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">Totales:</td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">
+                                            <t t-esc="total_sobras"/>
+                                        </td>
+                                        <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">
+                                            <t t-esc="total_produccion"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
                     </div>
                 </t>
             </t>

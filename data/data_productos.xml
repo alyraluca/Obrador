@@ -1,0 +1,150 @@
+<odoo>
+    <data>
+    <!--Productos usados como materia prima-->
+        <record id="product_har_cent" model="product.template">
+            <field name="name">Harina de Centeno</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="perecedero">False</field>
+            <field name="alergenos_ids" eval="[(6,0, [ref('ale_gluten')])]"/>
+            <field name="image_1920" type="base64" file="obrador/imag/harina_trigo.jpg" />
+        </record>
+
+        <record id="product_agua" model="product.template">
+            <field name="name">Agua</field>
+            <field name="sale_ok">False</field>
+            <field name="type">consu</field>
+            <field name="image_1920" type="base64" file="obrador/imag/agua.jpeg" />
+        </record>
+
+        <record id="product_levad_fres" model="product.template">
+            <field name="name">Levadura Fresca</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="alergenos_ids" eval="[(6,0, [ref('ale_gluten')])]"/>
+            <field name="image_1920" type="base64" file="obrador/imag/levadura.png" />
+        </record>
+
+        <record id="product_azuc" model="product.template">
+            <field name="name">Azucar</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="image_1920" type="base64" file="obrador/imag/azucar.jpg" />
+        </record>
+
+        <record id="product_trigo" model="product.template">
+            <field name="name">Harina de Trigo</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="alergenos_ids" eval="[(6,0, [ref('ale_gluten')])]"/>
+            <field name="image_1920" type="base64" file="obrador/imag/harina_trigo.jpg" />
+        </record>
+        
+        <record id="product_trigo_int" model="product.template">
+            <field name="name">Harina de Trigo Integral</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="alergenos_ids" eval="[(6,0, [ref('ale_gluten')])]"/>
+            <field name="image_1920" type="base64" file="obrador/imag/harina_trigo.jpg" />
+        </record>
+        <record id="product_espelta" model="product.template">
+            <field name="name">Harina de Espelta Integral</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="alergenos_ids" eval="[(6,0, [ref('ale_gluten')])]"/>
+            <field name="image_1920" type="base64" file="obrador/imag/harina_trigo.jpg" />
+        </record>
+        <record id="product_aceite_gira" model="product.template">
+            <field name="name">Aceite de Girasol</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="image_1920" type="base64" file="obrador/imag/girasol.jpg" />
+        </record>
+        <record id="product_huevo" model="product.template">
+            <field name="name">Huevos</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="alergenos_ids" eval="[(6,0, [ref('ale_huevo')])]"/>
+            <field name="image_1920" type="base64" file="obrador/imag/huevos.jpg" />
+        </record>
+        <record id="product_atun_gir" model="product.template">
+            <field name="name">Atun en aceite de girasol</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="alergenos_ids" eval="[(6,0, [ref('ale_pesc')])]"/>
+            <field name="image_1920" type="base64" file="obrador/imag/atun_girasol.jpg" />
+        </record>
+        <record id="product_pisto" model="product.template">
+            <field name="name">Pisto en lata</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="alergenos_ids" eval="[(6,0, [ref('ale_sulfi'), ref('ale_apio')])]"/>
+            <field name="image_1920" type="base64" file="obrador/imag/pisto.jpg" />
+        </record>
+        <record id="product_leche" model="product.template">
+            <field name="name">Leche entera</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="alergenos_ids" eval="[(6,0, [ref('ale_lact')])]"/>
+            <field name="image_1920" type="base64" file="obrador/imag/leche.jpg" />
+        </record>
+        <record id="product_miel" model="product.template">
+            <field name="name">Miel</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="image_1920" type="base64" file="obrador/imag/miel.jpg" />
+        </record>
+        <record id="product_sal" model="product.template">
+            <field name="name">Sal</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="image_1920" type="base64" file="obrador/imag/sal.jpg" />
+        </record>
+        <record id="product_piño" model="product.template">
+            <field name="name">Piñones</field>
+            <field name="sale_ok">False</field>
+            <field name="type">product</field>
+            <field name="alergenos_ids" eval="[(6,0, [ref('ale_cascar')])]"/>
+            <field name="image_1920" type="base64" file="obrador/imag/piñones.jpg" />
+        </record>
+
+        <!--Productos que se producen y se venden-->
+        <record id="product_1/4" model="product.template">
+            <field name="name">Barra de 1/4 normal</field>
+            <field name="sale_ok">True</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">product</field>
+            <field name="perecedero">True</field>
+            <field name="image_1920" type="base64" file="obrador/imag/barra_quart.jpg" />
+        </record>
+        <record id="product_gallega" model="product.template">
+            <field name="name">Gallega</field>
+            <field name="sale_ok">True</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">product</field>
+            <field name="perecedero">True</field>
+            <field name="image_1920" type="base64" file="obrador/imag/gallega.jpg" />
+        </record>
+        <record id="product_coca_tap" model="product.template">
+            <field name="name">Coca de tomate tapada</field>
+            <field name="sale_ok">True</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">product</field>
+            <field name="perecedero">True</field>
+            <field name="image_1920" type="base64" file="obrador/imag/coca_tomate_tapada.jpg" />
+        </record>
+        <record id="product_manj" model="product.template">
+            <field name="name">Manjovena</field>
+            <field name="sale_ok">True</field>
+            <field name="purchase_ok">False</field>
+            <field name="type">product</field>
+            <field name="perecedero">True</field>
+            <field name="image_1920" type="base64" file="obrador/imag/manjovena.jpg" />
+        </record>
+        
+
+    </data>
+    
+    
+
+</odoo>

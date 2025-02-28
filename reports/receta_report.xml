@@ -18,42 +18,68 @@
         <template id="obrador.report_receta">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="receta">
-                    <t t-call= "web.external_layout">
+                    <t t-call="web.external_layout">
                         <div class="page">
-                            <h2 style = "text-align: center; font-size: 18xp;">
+                            <!-- Título de la receta -->
+                            <h2 style="text-align: center; font-size: 20px; color: #333; margin-bottom: 20px;">
                                 <t t-esc="receta.name"/>
                             </h2>
-                            <p><strong>Cantidad: </strong><t t-esc="receta.cant"/> unidades</p>
-                            <p><strong>Peso Total: </strong><t t-esc="receta.peso"/> kg</p>
-                            <p><strong>Temperatura: </strong><t t-esc="receta.temp"/> ºC</p>
-                            <p><strong>Tiempo Cocción: </strong><t t-esc="receta.tiempo"/> minutos</p>
-                            <p><strong>Ingredientes:</strong></p>
-                            <ul>
-                                <t t-foreach="receta.ingredientes_ids" t-as="ingrediente">
-                                    <li>
-                                        <t t-esc="ingrediente.producto_id.name"/>
-                                        <t t-esc="ingrediente.cantidad"/>
-                                        <t t-esc="ingrediente.unidad_medida_id"/>
-                                    </li>
-                                </t>
-                            </ul>   
-                            <p><strong>Instrucciones: </strong></p>
-                            <t t-raw="receta.receta_instr"/>
+                            
+                            <!-- Información básica de la receta -->
+                            <div style="margin-bottom: 20px;">
+                                <p><strong style="font-size: 14px;">Cantidad:</strong> <span style="font-size: 14px;"> <t t-esc="receta.cant"/> unidades</span></p>
+                                <p><strong style="font-size: 14px;">Peso Total:</strong> <span style="font-size: 14px;"> <t t-esc="receta.peso"/> kg</span></p>
+                                <p><strong style="font-size: 14px;">Temperatura:</strong> <span style="font-size: 14px;"> <t t-esc="receta.temp"/> ºC</span></p>
+                                <p><strong style="font-size: 14px;">Tiempo Cocción:</strong> <span style="font-size: 14px;"> <t t-esc="receta.tiempo"/> minutos</span></p>
+                            </div>
 
-                            <p><strong>Alérgenos:</strong></p>
-                            <ul>
+                            <!-- Ingredientes -->
+                            <p><strong style="font-size: 16px; color: #333;">Ingredientes:</strong></p>
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                                <thead>
+                                    <tr style="background-color: #f8f8f8; text-align: left;">
+                                        <th style="padding: 10px; border: 1px solid #ddd;">Producto</th>
+                                        <th style="padding: 10px; border: 1px solid #ddd;">Cantidad</th>
+                                        <th style="padding: 10px; border: 1px solid #ddd;">Unidad de Medida</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="receta.ingredientes_ids" t-as="ingrediente">
+                                        <tr style="background-color: #fff;">
+                                            <td style="padding: 10px; border: 1px solid #ddd;">
+                                                <t t-esc="ingrediente.producto_id.name"/>
+                                            </td>
+                                            <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">
+                                                <t t-esc="ingrediente.cantidad"/>
+                                            </td>
+                                            <td style="padding: 10px; border: 1px solid #ddd;">
+                                                <t t-esc="ingrediente.unidad_medida_id"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                            <!-- Instrucciones -->
+                            <p><strong style="font-size: 16px; color: #333;">Instrucciones:</strong></p>
+                            <div style="background-color: #f8f8f8; padding: 10px; border-radius: 5px;">
+                                <t t-raw="receta.receta_instr"/>
+                            </div>
+
+                            <!-- Alérgenos -->
+                            <p><strong style="font-size: 16px; color: #333;">Alérgenos:</strong></p>
+                            <ul style="list-style-type: disc; padding-left: 20px;">
                                 <t t-foreach="receta.alergenos_ids" t-as="alergeno">
-                                    <li>
-                                        <t t-esc="alergeno.name"/>
-                                    </li>
+                                    <li style="font-size: 14px;"><t t-esc="alergeno.name"/></li>
                                 </t>
                             </ul>
 
-                            <p><strong>Notas: </strong><t t-esc="receta.notas"/></p>
+                            <!-- Notas -->
+                            <p><strong style="font-size: 16px; color: #333;">Notas:</strong></p> 
+                                <t t-esc="receta.notas"/>  
                         </div>
                     </t>
                 </t>
-
             </t>
         </template>
     

@@ -1,0 +1,50 @@
+<odoo>
+
+    <data>
+        <record id="ale_gluten" model="obrador.alergenos">
+            <field name="name">Gluten</field>
+        </record>
+        <record id="ale_crust" model="obrador.alergenos">
+            <field name="name">Crustáceos</field>
+        </record>
+        <record id="ale_huevo" model="obrador.alergenos">
+            <field name="name">Huevos</field>
+        </record>
+        <record id="ale_pesc" model="obrador.alergenos">
+            <field name="name">Pescado</field>
+        </record>
+        <record id="ale_cacahu" model="obrador.alergenos">
+            <field name="name">Cacahuetes</field>
+        </record>
+        <record id="ale_soja" model="obrador.alergenos">
+            <field name="name">Soja</field>
+        </record>
+        <record id="ale_lact" model="obrador.alergenos">
+            <field name="name">Lácteos</field>
+        </record>
+        <record id="ale_cascar" model="obrador.alergenos">
+            <field name="name">Frutos con cáscara</field>
+        </record>
+        <record id="ale_apio" model="obrador.alergenos">
+            <field name="name">Apio</field>
+        </record>
+        <record id="ale_mosta" model="obrador.alergenos">
+            <field name="name">Mostaza</field>
+        </record>
+        <record id="ale_sesam" model="obrador.alergenos">
+            <field name="name">Sésamo</field>
+        </record>
+        <record id="ale_sulfi" model="obrador.alergenos">
+            <field name="name">Sulfitos</field>
+        </record>
+        <record id="ale_altra" model="obrador.alergenos">
+            <field name="name">Altramuces</field>
+        </record>
+        <record id="ale_molusc" model="obrador.alergenos">
+            <field name="name">Moluscos</field>
+        </record>
+    
+    </data>
+    
+
+</odoo>

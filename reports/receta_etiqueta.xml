@@ -14,28 +14,48 @@
         <template id="obrador.report_etiqueta" >
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="receta">
-                    <t t-call= "web.external_layout">
+                    <t t-call="web.external_layout">
                         <style>
                             .label-box {
-                                border: 2px solid black;
-                                padding: 10px;
-                                width: 800px;
+                                border: 2px solid #333;
+                                padding: 20px;
+                                width: 700px;
                                 text-align: left;
-                                font-size: 12px;
+                                font-size: 14px;
                                 font-family: Arial, sans-serif;
+                                margin: 10px auto;
+                                background-color: #f8f8f8;
                             }
                             .product-name {
-                                text-align: left;
-                                font-size: 16px;
+                                text-align: center;
+                                font-size: 18px;
                                 font-weight: bold;
-                                margin: 5px 0;
+                                color: #333;
+                                margin-bottom: 15px;
                             }
 
                             .info {
-                                margin: 2px 0;
+                                margin: 5px 0;
+                                font-size: 14px;
+                                color: #555;
+                            }
+
+                            .info strong {
+                                color: #333;
+                            }
+
+                            .ingredient-list, .allergen-list {
+                                list-style-type: disc;
+                                padding-left: 20px;
+                            }
+
+                            .ingredient-list li, .allergen-list li {
+                                font-size: 14px;
+                                color: #555;
                             }
                         </style>
-                        <!--Cntenedor de la etiqueta-->
+
+                        <!-- Contenedor de la etiqueta -->
                         <div class="label-box">
                             
                             <!-- Nombre del producto -->
@@ -43,7 +63,7 @@
                                 <t t-esc="receta.name"/>
                             </h2>
 
-                            <!-- Peso -->
+                            <!-- Peso por unidad -->
                             <p class="info"><strong>Peso por unidad:</strong> 
                                 <t t-if="receta.cant &gt; 0">
                                     <t t-esc="receta.peso / receta.cant"/>
