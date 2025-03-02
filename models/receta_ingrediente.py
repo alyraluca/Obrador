@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-#Modulo para añadir dentro del formulario de 'Recetas'
+#Modulo para añadir dentro del formulario de 'Recetas' para poder añadir materia prima
 
 class RecetasIngrediente(models.Model):
     _name = 'obrador.receta.ingrediente'
@@ -12,22 +12,25 @@ class RecetasIngrediente(models.Model):
         required=True,
         ondelete = 'cascade'
         )
-    #Relación Many2one con los productos del modulo de produst.product 
+    #Relación Many2one con los productos
     producto_id = fields.Many2one(
         'product.product', 
         string='Producto', 
         required=True
     )
+    #Cantidad del ingrediente necesario para la receta
     cantidad = fields.Float(string='Cantidad', required=True)
 
+    #La unidad de medida de la cantidad
     unidad_medida_id = fields.Char(string='Unidad', required=True)
 
+    #Relación de los alergenos con los ingredientes de la receta
     alergenos_ids = fields.Many2many(
         'obrador.alergenos',
         compute='_compute_alergenos',
         store=True,
         ondelete = 'cascade',
-        compute_sudo=True #New
+        compute_sudo=True 
     )
 
     #Metodo para guardar la relación con los alergenos y que aparezca en la ficha del producto
@@ -39,15 +42,8 @@ class RecetasIngrediente(models.Model):
         return res
 
 
-    #
+    #Metodo para recuperar la relación entre los alergenos y los ingredientes
     @api.depends('producto_id.alergenos_ids')
     def _compute_alergenos(self):
         for ingrediente in self:
             ingrediente.alergenos_ids = [(6, 0, ingrediente.producto_id.alergenos_ids.ids)]
-
-    '''@api.depends('producto_id.alergenos_ids')
-    def _compute_alergenos(self):
-        for ingrediente in self:
-            ingrediente.alergenos_ids = ingrediente.producto_id.alergenos_ids'''
-    
-    

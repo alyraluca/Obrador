@@ -1,0 +1,32 @@
+<odoo>
+    <data noupdate="1">
+
+        <record id="module_category_obrador" model="ir.module.category">
+            <field name="name">Obrador</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Grupo de Management (Acceso total) -->
+        <record id="group_obrador_management" model="res.groups">
+            <field name="name">Management</field>
+            <field name="category_id" ref="module_category_obrador"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <!-- Grupo de Cocineros/Panaderos -->
+        <record id="group_obrador_cocinero" model="res.groups">
+            <field name="name">Cocineros/Panaderos</field>
+            <field name="category_id" ref="module_category_obrador"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Grupo de Vendedores -->
+        <record id="group_obrador_vendedor" model="res.groups">
+            <field name="name">Vendedores</field>
+            <field name="category_id" ref="module_category_obrador"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+#Modulo para crear recetas
 
 class Recetas(models.Model):
     _name = 'obrador.recetas'
@@ -16,15 +17,17 @@ class Recetas(models.Model):
         )
     
     notas = fields.Text(string = 'Comentarios')
-    tiempo = fields.Integer(string='Tiempo cocción (min)')
-    temp = fields.Integer(string='Temp. cocción (ºC)')
-    cant = fields.Integer(string='Cantidad receta (u)')
-    peso = fields.Float(string='Peso total (kg)')
+    tiempo = fields.Integer(string='Tiempo cocción (min)') #Tiempo de cocinado
+    temp = fields.Integer(string='Temp. cocción (ºC)') #Temperatura de cocción
+    cant = fields.Integer(string='Cantidad receta (u)') #Cantidad que produce la receta
+    peso = fields.Float(string='Peso total (kg)') #Peso total de los productos elaborados
     receta_instr = fields.Html(string='Instrucciones/Pasos')
-    #Campo calculado para la fecha de producción
+    #Campo calculado para la última fecha de producción de ese producto
     ultima_fecha_produc = fields.Datetime(string = 'Última fecha de producción', compute = '_compute_ultima_fecha_produc')
+    #Campo calculado para la última cantidad producida
     ultima_cantidad_produc = fields.Float(string= 'Última cantidad producida', compute = '_compute_ultima_cantidad_produc')
 
+    #Categoria para el producto
     categ = fields.Selection(
         [('Pastries', 'Bolleria'),
          ('Bakery', 'Pasteleria'),
@@ -34,28 +37,14 @@ class Recetas(models.Model):
         required=True
         )         
 
-    #Relación Many2many con los alérgenos de los ingredeintes
+    #Relación Many2many con los alérgenos de los ingredientes: calcula/ recupera los alergenos de la materia prima
     alergenos_ids = fields.Many2many(
         'obrador.alergenos',
         compute='_compute_alergenos',
         store=True
     )
 
-    '''@api.depends('ingredientes_ids.alergenos_ids')
-    def _compute_alergenos(self):
-        for receta in self:
-            # Unir todos los alérgenos de los ingredientes sin duplicados
-            receta.alergenos_ids = receta.ingredientes_ids.mapped('alergenos_ids')'''
-    
-    #Old new
-    '''@api.depends('ingredientes_ids.producto_id.alergenos_ids')
-    def _compute_alergenos(self):
-        for receta in self:
-            alergenos = set()
-            for ingrediente in receta.ingredientes_ids:
-                alergenos.update(ingrediente.producto_id.alergenos_ids.ids)  # Obtener los IDs de los alérgenos
-            receta.alergenos_ids = [(6, 0, list(alergenos))]
-'''
+    #Metodo para obtener los alergenos de la materia prima
     @api.depends('ingredientes_ids.producto_id.alergenos_ids')
     def _compute_alergenos(self):
         for receta in self:
@@ -100,6 +89,7 @@ class Recetas(models.Model):
             else:
                 record.ultima_fecha_produc = False
 
+    #Metodo para recuperar la última cantidad producida
     @api.depends('producto_id')
     def _compute_ultima_cantidad_produc(self):
         for record in self:
@@ -114,6 +104,7 @@ class Recetas(models.Model):
             else:
                 record.ultima_cantidad_produc = 0.0
     
+    #Constraints para que solo haya una receta por producto
     _sql_constraints = [
         ('unique_receta_producto', 'UNIQUE(producto_id)', 'Cada producto solo puede tener una receta asociada')
     ]

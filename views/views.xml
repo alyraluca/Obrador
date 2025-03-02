@@ -3,14 +3,7 @@
 
     <!-- actions opening views on models -->
 
-    <!-- Nuevo product.product form view
-    product.product_template_form_view
-    product.product_normal_form_view
-
-    
-    -->
-  
-    
+    <!--Vista modificada de product.template para añadir los alergenos, la receta y la opción de elaborado. -->
     <record id="view_product_form_alergenos" model="ir.ui.view">
       <field name="name">product.template.form.alergenos</field>
       <field name="model">product.template</field>
@@ -19,10 +12,8 @@
         <xpath expr="//sheet/notebook/page[@name='inventory']" position="after">
           <page name="alergenos" string="Alérgenos">
             <group>
-              <field name= "alergenos_ids" widget="many2many_tags" string="Alérgenos"/>
-              
-            </group>
-            
+              <field name= "alergenos_ids" widget="many2many_tags" string="Alérgenos"/>             
+            </group>           
           </page>
           <page name="receta" string="Receta">
             <group>
@@ -32,42 +23,20 @@
         </xpath>
         <xpath expr="//sheet/notebook/page[@name='general_information']" position="inside">
           <group>
-            <field name = "perecedero"/>
+            <field name = "perecedero" string = "Producto Elaborado"/>
           </group>
         </xpath>
       </field> 
     </record>
-   
-    <!--
-    <record id="product.action_window_template_window" model="ir.action.act.window">
-      <field name="name">Product template window</field>
-      <field name="res_model">product.template</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-
-    <record id="product.action_window_template_tree" model="ir.action.act.window.view">
-      <field name="sequence" eval="1"></field>
-      <field name="view_mode">form</field>
-      <field name="view_id" ref="product.product_template_kanban_view"></field>
-      <field name="act_window_id" ref="product.action_window_template_window"></field>
-    </record>
-    <record id="product.action_window_template_form" model="ir.action.act.window.view">
-      <field name="sequence" eval="2"></field>
-      <field name="view_mode">tree</field>
-      <field name="view_id" ref="view_product_form_alergenos"></field>
-      <field name="act_window_id" ref="product.action_window_template_window"></field>
-    </record>
-  -->
 
 
-
+    <!--Vistas para las recetas, en formulario y en lista, organizado por categoria del producto-->
     <record model="ir.actions.act_window" id="obrador.action_window_recetas">
       <field name="name">Recetas</field>
       <field name="res_model">obrador.recetas</field>
       <field name="view_mode">tree,form</field>
       <field name = "context">{'group_by': 'categ'}</field> 
     </record>
-
 
     <record model="ir.ui.view" id="obrador.recetas_tree_view">
       <field name="name">Recetas</field>
@@ -123,7 +92,7 @@
 
 
    
-    
+    <!--Vistas de los alergenos, solo se puede ver en formato tree, ya que no hace falta mucha información-->
     <record model="ir.actions.act_window" id="obrador.action_window_alergenos">
       <field name="name">Alergenos</field>
       <field name="res_model">obrador.alergenos</field>
@@ -143,7 +112,7 @@
     </record>
 
 
-
+    <!--Vistas para los remanentes ordenado por fecha-->
     <record model="ir.actions.act_window" id="obrador.action_window_remanentes">
       <field name="name">Remanentes</field>
       <field name="res_model">obrador.remanentes</field>
@@ -182,7 +151,7 @@
 
 
     
-
+    <!--Vista para las gráficas de barras de los remanentes y de la producción-->
     <record model="ir.actions.act_window" id="obrador.action_window_graficas">
       <field name="name">Gráficas</field>
       <field name="res_model">obrador.graficas</field>
@@ -219,23 +188,19 @@
     </record>
 -->
 
-    <!-- Top menu item -->
+    <!-- Menús -->
 
     <menuitem name="Obrador" id="obrador.menu_root"/>
-
-    <!-- menu categories -->
 
     <menuitem name="Recetario" id="obrador.menu_1" parent="obrador.menu_root"/>
     <menuitem name="Sobras" id="obrador.menu_2" parent="obrador.menu_root"/>
 
-    <!-- actions -->
+    <!-- Acciones para poder acceder a los menus y submenus -->
 
     <menuitem name="Recetas" id="obrador.menu_1_recetas" parent="obrador.menu_1"
               action="obrador.action_window_recetas"/>
     <menuitem name="Alergenos" id="obrador.menu_1_alergenos" parent="obrador.menu_1"
               action="obrador.action_window_alergenos"/>
-
-
 
     <menuitem name="Remanentes" id="obrador.menu_2_remanentes" parent="obrador.menu_2"
               action="obrador.action_window_remanentes"/>

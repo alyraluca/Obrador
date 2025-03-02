@@ -1,5 +1,6 @@
 <odoo>
     <data noupdate="1">
+    <!--Receta para una barra de 1/4 normal-->
         <record id="receta_pan_quarta" model="obrador.recetas">
             <field name="name">Barra de 1/4 normal</field>
             <field name="producto_id" ref = "product_1/4"/>

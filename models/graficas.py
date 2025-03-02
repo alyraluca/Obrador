@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+#Modulo para gestionar las gráficas
 
 class Graficas(models.Model):
     _name = 'obrador.graficas'
@@ -10,6 +11,7 @@ class Graficas(models.Model):
     sobras = fields.Float(string="Sobrantes")
     nombre = fields.Char(string="Producto")
 
+    #Metodo para crear una vista apartir de los datos de remanentes
     @api.model
     def init(self):
         self.env.cr.execute("""
