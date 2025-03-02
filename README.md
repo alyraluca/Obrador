@@ -24,7 +24,7 @@ El módulo depende de los módulos `product` y `mrp`, los cuales se instalarán 
 
 # Acceso a empleados
 ### Datos de autenticación del administrador:
-- **Usuario:** `10227633`
+- **Usuario:** `nie`
 - **Contraseña:** `root`
 
 Hemos creado un grupo de acceso para el módulo, llamado `Obrador`, para facilitar las asignaciones de los permisos de nuestros empleados.
