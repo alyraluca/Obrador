@@ -63,7 +63,7 @@
                                 <t t-esc="receta.name"/>
                             </h2>
 
-                            <!-- Peso por unidad -->
+                            <!-- Peso por unidad calculado -->
                             <p class="info"><strong>Peso por unidad:</strong> 
                                 <t t-if="receta.cant &gt; 0">
                                     <t t-esc="receta.peso / receta.cant"/>

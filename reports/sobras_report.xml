@@ -11,7 +11,7 @@
             <field name="print_report_name">'Sobras - %s' % (object.producto_id.name)</field>
         </record>
 
-        <!-- Plantilla del informe de remanentes -->
+        <!-- Plantilla del informe de sobras -->
         <template id="obrador.report_remanentes">
             <t t-call="web.html_container">
                 <t t-call="web.external_layout">
@@ -36,11 +36,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Inicializar acumuladores -->
+                                    <!-- Inicializamos acumuladores para sumar las sobras y las producciones -->
                                     <t t-set="total_sobras" t-value="0.0"/>
                                     <t t-set="total_produccion" t-value="0.0"/>
 
-                                    <!-- Filtrar las entradas de ese producto -->
+                                    <!-- Filtrar los registros por producto -->
                                     <t t-foreach="docs.filtered(lambda x: x.producto_id == producto)" t-as="remanente">
                                         <tr style="background-color: #fff;">
                                             <td style="padding: 10px; border: 1px solid #ddd;"><t t-esc="remanente.fecha"/></td>
