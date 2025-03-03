@@ -19,6 +19,12 @@ hero_darken: true
   <img src="../../img/sobras.png" alt="Sobras" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
 </div>
 
+- Cuando queramos escojer un producto para añadirle las sobras, solo nos aparecerá en la lista los productos que anteriormente los hemos catalogado como **`Producto Elaborado`**
+
+<div style="text-align: center; margin: 20px;">
+  <img src="../../img/product_elaborado.png" alt="Elaborados" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+</div>
+
 ### Gráficas
 
 En el apartado de gráficas, podemos ver a modo de barras, las **sobras** o las **producciones** de los varios productos que tenemos clasificado por día.
