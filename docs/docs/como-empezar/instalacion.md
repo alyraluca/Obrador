@@ -13,15 +13,19 @@ hero_darken: true
 
 Antes de instalar el módulo, recomendamos cumplir con los siguientes requisitos:  
 
-**Versión de Odoo:** Este módulo está desarrollado para Odoo **14**.  
-**Docker y Docker Compose:** 
-  - Docker Engine **24.0** con Docker Compose plugin >= **2.18.0** (Recomendada ya que se ha desarrollado con estas configuraciones). 
-  - O bien **Docker Desktop**.  
-**Dependencias:**  
-  - Módulos requeridos: **`mrp`**, **`product`**.
-**Revisar antes de instalar:**
-  - Si usas Docker, asegúrate de que Odoo esté corriendo en un contenedor.  
-  - Si instalas sin Docker, comprueba que Odoo tenga acceso a la carpeta de addons.
+- **Versión de Odoo:** 
+    - Este módulo está desarrollado para Odoo **14**.
+
+- **Docker y Docker Compose:** 
+    - Docker Engine **24.0** con Docker Compose plugin >= **2.18.0** (Recomendada ya que se ha desarrollado con estas configuraciones). 
+    - O bien **Docker Desktop**.
+  
+- **Dependencias:**  
+    - Módulos requeridos: **`mrp`**, **`product`**.
+  
+- **Revisar antes de instalar:**
+    - Si usas Docker, asegúrate de que Odoo esté corriendo en un contenedor.  
+    - Si instalas sin Docker, comprueba que Odoo tenga acceso a la carpeta de addons.
 
 ### **2. Instalación con docker**
 Si Odoo está funcionando en un contenedor Docker, sigue estos pasos:
@@ -34,17 +38,19 @@ Ejecuta el siguiente comando en tu terminal:
      ```
 Si se utiliza el script de **'aoltra'**, ejecuta:
 
-    ``` bash
+    ``` 
     $ /up.sh 
     ```
 
 **Paso 2: Descarga el módulo**
 Ubicaté en el directorio de addons personalizados y clona el repositorio:
 
-     ``` bash
+     ``` 
     $ git clone https://github.com/alyraluca/Obrador.git
      ```
+
 **Paso 3: Reinicia Odoo**
+
 Sal del contenedor y reinicia Odoo
 
 **Paso 4: Instalar el módulo y activarlo**
@@ -58,13 +64,13 @@ Desde la interfaz web de Odoo:
 
 **Paso 1: Descargar el módulo**
 
-    ``` bash
+    ``` 
     $ git clone https://github.com/alyraluca/Obrador.git
     ```
 
 **Paso 2: Copiarlo en la carpeta de addons**
 
-    ``` bash
+    ``` 
     $ mv obrador /odoo/custom/addons/
     ```
 
@@ -75,7 +81,7 @@ Desde la interfaz web de Odoo:
   
 **Paso 4: Reinicia Odoo**
 
-    ``` bash
+    ``` 
     $ systemctl restart odoo
     ```
    

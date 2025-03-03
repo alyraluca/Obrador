@@ -23,3 +23,7 @@ Accede a Ajustes > Usuarios
 
 **Paso 3:** 
 El modulo necesita tener instalado los modulos de **'product'** y **'mrp'**. Verifica que se han instalado junto con nuestro módulo. 
+
+**Paso 4:**
+Veremos que el módulo viene precargado con productos/materia prima, con los cuales, podremos crear recetas. 
+Para poder ver en funcionamiento la parte de **remanentes**, tendremos que crearnos algunas **Ordenes de Producción** por nuestra cuenta.
