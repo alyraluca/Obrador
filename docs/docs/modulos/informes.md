@@ -22,6 +22,6 @@ hero_darken: true
 
 Tenemos como opción seleccionar varios registros de varios días, o meses, para varios productos. Entonces, el módulo nos puede generar un informe donde nos agrupa las sobras, y las producciones, por producto y nos calcula los totales de esos datos.
 
-<div style="text-align: center; margin: 20px;">
+<div style=" margin: 20px;">
   <img src="../../img/informe_sobras.png" alt="Informe sobras" style="width: 50%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
 </div>

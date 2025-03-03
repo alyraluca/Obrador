@@ -31,6 +31,7 @@ Antes de instalar el módulo, recomendamos cumplir con los siguientes requisitos
 Si Odoo está funcionando en un contenedor Docker, sigue estos pasos:
 
 **Paso 1: Accede al contenedor de Odoo**
+
 Ejecuta el siguiente comando en tu terminal:
 
 ```
@@ -44,6 +45,7 @@ $ /up.sh
 ```
 
 **Paso 2: Descarga el módulo**
+
 Ubicaté en el directorio de addons personalizados y clona el repositorio:
 
 ``` 

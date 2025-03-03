@@ -10,6 +10,7 @@ hero_darken: true
 Una vez instalado el módulo, realiza los siguientes ajustes en Odoo:
 
 **Paso 1:** 
+
 Accede a Ajustes > Usuarios
 
 **Paso 2: Asignamos permisos**
@@ -23,9 +24,11 @@ Accede a Ajustes > Usuarios
   <img src="../../img/permisos.png" alt="Permisos" style="width: 80%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
 </div>
 
-**Paso 3:** 
+**Paso 3:**
+
 El modulo necesita tener instalado los modulos de **'product'** y **'mrp'**. Verifica que se han instalado junto con nuestro módulo. 
 
 **Paso 4:**
+
 Veremos que el módulo viene precargado con productos/materia prima, con los cuales, podremos crear recetas. 
 Para poder ver en funcionamiento la parte de **remanentes**, tendremos que crearnos algunas **Ordenes de Producción** por nuestra cuenta.
