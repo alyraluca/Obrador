@@ -6,5 +6,10 @@
         {
             "path": "../Fase 5 - Final"
         }
-    ]
+    ],
+    "extensions": {
+        "recommendations": [
+            "shd101wyy.markdown-preview-enhanced"
+        ]
+    }
 }
