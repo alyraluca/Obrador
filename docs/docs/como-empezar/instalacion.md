@@ -14,14 +14,14 @@ hero_darken: true
 Antes de instalar el módulo, recomendamos cumplir con los siguientes requisitos: 
 
 - **Versión de Odoo:** 
-    - Este módulo está desarrollado para Odoo **14**.
+    - Este módulo está desarrollado para Odoo **`14`**.
 
 - **Docker y Docker Compose:** 
     - Docker Engine 24.0 con Docker Compose plugin >= 2.18.0 (Recomendada ya que se ha desarrollado con estas configuraciones). 
     - O bien Docker Desktop.
   
 - **Dependencias:**  
-    - Módulos requeridos: **mrp**, **product**.
+    - Módulos requeridos: **`mrp`**, **`product`**.
   
 - **Revisar antes de instalar:**
     - Si usas Docker, asegúrate de que Odoo esté corriendo en un contenedor.  
@@ -30,7 +30,7 @@ Antes de instalar el módulo, recomendamos cumplir con los siguientes requisitos
 ### **2. Instalación con docker**
 Si Odoo está funcionando en un contenedor Docker, sigue estos pasos:
 
-**Paso 1: Accede al contenedor de Odoo**
+**Paso 1:** Accede al contenedor de Odoo
 
 Ejecuta el siguiente comando en tu terminal:
 
@@ -38,7 +38,7 @@ Ejecuta el siguiente comando en tu terminal:
 $ docker exec -it odoo_container bash
 ```
 
-Si se utiliza el script de **'aoltra'**, ejecuta:
+Si se utiliza el script de **`aoltra`**, ejecuta:
 
 ``` 
 $ /up.sh 
@@ -78,6 +78,7 @@ $ mv obrador /odoo/custom/addons/
    - Ir a Apps
    - Activar el Modo Desarrollador
    - Hacer click en 'Actualizar lista de Aplicaciones'
+   - Instalamos módulo
   
 **Paso 4: Reinicia Odoo**
 

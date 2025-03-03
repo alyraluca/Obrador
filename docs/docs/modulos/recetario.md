@@ -10,7 +10,7 @@ hero_darken: true
 
 ### Alérgenos
 
-El módulo viene ya precargado con los 14 alérgenos que Sanidad nos pide. A partir de aquí podremos añadirlos a los productos que tenemos precargados en el módulo **Product** de Odoo.
+El módulo viene ya precargado con los 14 alérgenos que Sanidad nos pide. A partir de aquí podremos añadirlos a los productos que tenemos precargados en el módulo **`Product`** de Odoo.
 
 <div style="text-align: center; margin: 20px;">
   <img src="../../img/alergenos.png" alt="Alergenos" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
@@ -30,7 +30,7 @@ Aquí vemos como podemos añadir alérgenos a las materias primas, de una lista 
 
 ### Recetas
 
-El recetario permite crear recetas para productos existentes en Ventas o en Compras (ya que los dos utilizan product, modulo del cual nosotros dependemos). Está vista tree, también nos dice cual fue la última cantidad producida de este producto y la cantidad que produce la receta.
+El recetario permite crear recetas para productos existentes en `Ventas` o en `Compras` (ya que los dos utilizan product, modulo del cual nosotros dependemos). Está vista tree, también nos dice cual fue la última cantidad producida de este producto y la cantidad que produce la receta.
 
 <div style="text-align: center; margin: 20px;">
   <img src="../../img/recetas.png" alt="Recetario" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
@@ -42,7 +42,7 @@ En el formulario del recetario, podemos añadir ingredientes en una lista que es
   <img src="../../img/receta_detalles.png" alt="Recetario-formulario" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
 </div>
 
-Además, la receta nos aparecerá como link en el apartado de **Recetas** en la ficha del producto.
+Además, la receta nos aparecerá como link en el apartado de **`Recetas`** en la ficha del producto.
 
 <div style="text-align: center; margin: 20px;">
   <img src="../../img/producto_receta.png" alt="Receta-producto" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
