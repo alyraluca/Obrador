@@ -50,7 +50,7 @@ $ /up.sh
 $ git clone https://github.com/alyraluca/Obrador.git
 ```
 
-**Paso 3:** reiniciamos el contenedor
+**Paso 3:** Reiniciamos el contenedor
 
 **Paso 4:** Instalamos el módulo
 
@@ -62,25 +62,25 @@ $ git clone https://github.com/alyraluca/Obrador.git
 
 ### 3. Instalación sin docker
 
-**Paso 1: Descargar el módulo**
+**Paso 1:** Descargar el módulo
 
 ``` 
 $ git clone https://github.com/alyraluca/Obrador.git
 ```
 
-**Paso 2: Copiarlo en la carpeta de addons**
+**Paso 2:** Copiarlo en la carpeta de addons
 
 ``` 
 $ mv obrador /odoo/custom/addons/
 ```
 
-**Paso 3: Actualizar la lista de módulos en Odoo**
+**Paso 3:** Actualizar la lista de módulos en Odoo
    - Ir a Apps
    - Activar el Modo Desarrollador
    - Hacer click en 'Actualizar lista de Aplicaciones'
    - Instalamos módulo
   
-**Paso 4: Reinicia Odoo**
+**Paso 4:** Reinicia Odoo
 
 ``` 
 $ systemctl restart odoo
