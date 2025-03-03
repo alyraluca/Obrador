@@ -1,0 +1,15 @@
+- label: Cómo empezar
+  items:
+    - name: Instalación
+      link: /docs/como-empezar/instalacion
+    - name: Configuración
+      link: /docs/como-empezar/configuracion
+
+- label: Módulos
+  items:
+    - name: Recetario
+      link: /docs/modulos/recetario
+    - name: Remanentes
+      link: /docs/modulos/sobras
+    - name: Informes
+      link: /docs/modulos/informes
