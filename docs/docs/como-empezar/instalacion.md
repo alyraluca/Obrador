@@ -44,20 +44,17 @@ Si se utiliza el script de **'aoltra'**, ejecuta:
 $ /up.sh 
 ```
 
-**Paso 2: Descarga el módulo**
-
-Ubicaté en el directorio de addons personalizados y clona el repositorio:
+**Paso 2:** Descargamos el módulo en addons
 
 ``` 
 $ git clone https://github.com/alyraluca/Obrador.git
 ```
 
-**Paso 3: Reinicia Odoo**
+**Paso 3:** reiniciamos el contenedor
 
-Sal del contenedor y reinicia Odoo
+**Paso 4:** Instalamos el módulo
 
-**Paso 4: Instalar el módulo y activarlo**
-Desde la interfaz web de Odoo:
+   - Nos colocamos en la interfaz web de Odoo
    - Ir a Apps
    - Activar el Modo Desarrollador
    - Hacer click en 'Actualizar lista de Aplicaciones'

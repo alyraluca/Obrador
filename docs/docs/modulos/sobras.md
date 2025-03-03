@@ -23,7 +23,7 @@ hero_darken: true
 
 En el apartado de gráficas, podemos ver a modo de barras, las **sobras** o las **producciones** de los varios productos que tenemos clasificado por día.
 
-<div style="text-align: center; margin: 20px; display: flex; justify-content: center; gap: 5px;">
-  <img src="../../img/gráficas_producción.png" alt="Sobras" style="width: 50%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
-  <img src="../../img/gráficas_sobras.png" alt="Sobras" style="width: 50%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+<div style="text-align: center; margin: 20px;  justify-content: center; gap: 5px;">
+  <img src="../../img/gráficas_producción.png" alt="Sobras" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
+  <img src="../../img/gráficas_sobras.png" alt="Sobras" style="width: 100%; height: auto; border: 2px solid #ccc; border-radius: 5px;">
 </div>
