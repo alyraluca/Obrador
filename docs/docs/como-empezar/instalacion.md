@@ -33,9 +33,9 @@ Si Odoo está funcionando en un contenedor Docker, sigue estos pasos:
 **Paso 1: Accede al contenedor de Odoo**
 Ejecuta el siguiente comando en tu terminal:
 
-     ``` bash
-    $ docker exec -it odoo_container bash
-     ```
+$ docker exec -it odoo_container bash
+
+
 Si se utiliza el script de **'aoltra'**, ejecuta:
 
     ``` 
